@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="drawer_strings">
+        <item>Home</item>
+        <item>Board</item>
+        <item>Planning</item>
+        <item>Settings</item>
+    </string-array>
+    <string-array name="tabs">
+        <item>Modules</item>
+        <item>Activities</item>
+        <item>Projects</item>
+        <item>Susies</item>
+        <item>Marks</item>
+    </string-array>
+
+    <string name="app_name">EpiAndroid</string>
+    <string name="title_activity_main">Home</string>
+    <string name="action_settings">Settings</string>
+    <string name="login_text">Login</string>
+    <string name="password_text">Password</string>
+    <string name="login_button">Log In</string>
+    <string name="login_error">Login or Password is incorrect.</string>
+    <string name="base_url">http://epitech-api.herokuapp.com</string>
+    <string name="user_learned_string">user_learned_drawer</string>
+    <string name="token_string">token</string>
+    <string name="empty_string"></string>
+    <string name="drawer_profile_image_desc">Profile Image</string>
+    <string name="login_textview">login</string>
+    <string name="username_textview">Firstname Lastname</string>
+    <string name="title_activity_board">BoardActivity</string>
+    <string name="title_activity_planning">Planning</string>
+    <string name="hello_world">Hello world!</string>
+
+</resources>
