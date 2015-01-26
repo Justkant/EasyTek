@@ -80,7 +80,7 @@ public class BaseActivity extends ActionBarActivity implements DrawerAdapter.Cli
     }
 
     protected int getSelfNavDrawerItem(){
-        return
+        return 0;
     }
 
     private void onNavDrawerItemClicked(int position) {
