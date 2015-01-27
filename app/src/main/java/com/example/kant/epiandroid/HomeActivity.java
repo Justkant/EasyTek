@@ -35,6 +35,9 @@ public class HomeActivity extends BaseActivity {
             }
         }
 
+        getActionBarToolbar().setTitle(R.string.title_activity_main);
+        setSupportActionBar(getActionBarToolbar());
+
         api.infosPost(MySharedPreferences.readToPreferences(this, getString(R.string.token_string), getString(R.string.empty_string)), new Callback<HomeInfos>() {
             @Override
             public void success(HomeInfos homeInfos, Response response) {

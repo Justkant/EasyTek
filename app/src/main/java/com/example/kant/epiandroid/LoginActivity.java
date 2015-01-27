@@ -35,6 +35,7 @@ public class LoginActivity extends BaseActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Toolbar toolbar = getActionBarToolbar();
+        toolbar.setSubtitle(R.string.title_activity_login);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -8,6 +8,9 @@ public class PlanningActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_planning);
+
+        getActionBarToolbar().setTitle(R.string.title_activity_planning);
+        setSupportActionBar(getActionBarToolbar());
     }
 
     @Override
