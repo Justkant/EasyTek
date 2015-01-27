@@ -13,7 +13,6 @@ public class BoardActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_board);
-        super.setupDrawer();
 
         ViewPager mPager = (ViewPager) findViewById(R.id.pager);
         SlidingTabLayout mTabs = (SlidingTabLayout) findViewById(R.id.tabs);
@@ -22,4 +21,9 @@ public class BoardActivity extends BaseActivity {
         mTabs.setViewPager(mPager);
     }
 
+
+    @Override
+    protected int getSelfNavDrawerItem() {
+        return BOARD_ID;
+    }
 }

@@ -8,6 +8,11 @@ public class PlanningActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_planning);
-        super.setupDrawer();
+       super.setupDrawer();
+    }
+
+    @Override
+    protected int getSelfNavDrawerItem() {
+        return PLANNING_ID;
     }
 }

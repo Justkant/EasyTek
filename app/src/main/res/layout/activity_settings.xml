@@ -3,7 +3,8 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.kant.epiandroid.BoardActivity">
+    android:layout_below="@+id/actionBarToolbar"
+    tools:context="com.example.kant.epiandroid.SettingsActivity">
 
     <LinearLayout
         android:id="@+id/main_content"
@@ -15,16 +16,10 @@
             android:id="@+id/actionBarToolbar"
             layout="@layout/app_bar" />
 
-        <com.example.kant.epiandroid.Tabs.SlidingTabLayout
-            android:id="@+id/tabs"
+        <FrameLayout
+            android:id="@+id/container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <android.support.v4.view.ViewPager
-            android:id="@+id/pager"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 

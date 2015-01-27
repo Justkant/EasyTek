@@ -6,10 +6,11 @@
     android:layout_below="@+id/actionBarToolbar"
     tools:context="com.example.kant.epiandroid.MainActivity">
 
-    <RelativeLayout
-        android:id="@+id/mainRelativeLayout"
+    <LinearLayout
+        android:id="@+id/main_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <include
             android:id="@+id/actionBarToolbar"
@@ -18,17 +19,9 @@
         <FrameLayout
             android:id="@+id/container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/actionBarToolbar" />
+            android:layout_height="match_parent" />
+    </LinearLayout>
 
-    </RelativeLayout>
+    <include layout="@layout/navdrawer" />
 
-    <fragment
-        android:id="@+id/fragment_drawer"
-        android:name="com.example.kant.epiandroid.Drawer.DrawerFragment"
-        android:layout_width="@dimen/drawer_width"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:choiceMode="singleChoice"
-        tools:layout="@layout/fragment_drawer" />
 </android.support.v4.widget.DrawerLayout>

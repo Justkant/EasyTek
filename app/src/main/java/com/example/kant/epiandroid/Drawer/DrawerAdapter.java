@@ -49,7 +49,7 @@ public class DrawerAdapter extends RecyclerView.Adapter<DrawerAdapter.MyViewHold
     }
 
     public interface ClickListener {
-        public void itemClicked(View view, int position);
+        public void itemClicked(final int position);
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -67,7 +67,7 @@ public class DrawerAdapter extends RecyclerView.Adapter<DrawerAdapter.MyViewHold
         @Override
         public void onClick(View v) {
             if (clickListener != null) {
-                clickListener.itemClicked(v, getPosition());
+                clickListener.itemClicked(getPosition());
             }
         }
     }

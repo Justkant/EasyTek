@@ -2,9 +2,10 @@
 <RelativeLayout
     android:id="@+id/drawerList"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="@dimen/drawer_width"
     android:layout_height="match_parent"
     android:background="@color/drawerBgColor"
+    android:layout_gravity="start"
     android:clickable="true">
 
     <LinearLayout

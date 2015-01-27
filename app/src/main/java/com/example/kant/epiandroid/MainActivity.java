@@ -24,4 +24,9 @@ public class MainActivity extends BaseActivity {
         }
     }
 
+
+    @Override
+    protected int getSelfNavDrawerItem() {
+        return HOME_ID;
+    }
 }

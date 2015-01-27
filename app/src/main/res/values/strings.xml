@@ -32,5 +32,7 @@
     <string name="title_activity_board">BoardActivity</string>
     <string name="title_activity_planning">Planning</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_settings">Settings</string>
 
 </resources>
