@@ -2,18 +2,15 @@ package com.example.kant.epiandroid;
 
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
-import android.support.v7.widget.Toolbar;
 
 public class SettingsActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        super.setupDrawer();
+        setContentView(R.layout.activity_settings);
 
-        Toolbar toolbar = getActionBarToolbar();
-        toolbar.setTitle(R.string.title_settings);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
                     .add(R.id.container, new SettingsFragment())

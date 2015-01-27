@@ -13,7 +13,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
-import android.view.View;
 
 import com.example.kant.epiandroid.Drawer.DrawerAdapter;
 import com.example.kant.epiandroid.Drawer.DrawerRawInfo;
@@ -49,7 +48,7 @@ public class BaseActivity extends ActionBarActivity implements DrawerAdapter.Cli
 
     protected void setupDrawer() {
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (mDrawerLayout == null){
+        if (mDrawerLayout == null) {
             return;
         }
 
@@ -127,7 +126,7 @@ public class BaseActivity extends ActionBarActivity implements DrawerAdapter.Cli
         return toolbar;
     }
 
-    protected int getSelfNavDrawerItem(){
+    protected int getSelfNavDrawerItem() {
         return 0;
     }
 
@@ -147,12 +146,7 @@ public class BaseActivity extends ActionBarActivity implements DrawerAdapter.Cli
                     goToNavDrawerItem(position);
                 }
             }, 250);
-
             setSelectedNavDrawerItem(position);
-            View mainContent = findViewById(R.id.main_content);
-            if (mainContent != null) {
-                mainContent.animate().alpha(0).setDuration(150);
-            }
         }
 
         mDrawerLayout.closeDrawer(Gravity.START);
@@ -167,16 +161,19 @@ public class BaseActivity extends ActionBarActivity implements DrawerAdapter.Cli
             case HOME_ID:
                 intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 finish();
                 break;
             case BOARD_ID:
                 intent = new Intent(this, BoardActivity.class);
                 startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 finish();
                 break;
             case PLANNING_ID:
                 intent = new Intent(this, PlanningActivity.class);
                 startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 finish();
                 break;
             case SETTINGS_ID:
@@ -194,10 +191,5 @@ public class BaseActivity extends ActionBarActivity implements DrawerAdapter.Cli
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         setupDrawer();
-        View mainContent = findViewById(R.id.main_content);
-        if (mainContent != null) {
-            mainContent.setAlpha(0);
-            mainContent.animate().alpha(1).setDuration(250);
-        }
     }
 }

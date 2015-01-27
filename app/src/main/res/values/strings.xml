@@ -29,10 +29,9 @@
     <string name="drawer_profile_image_desc">Profile Image</string>
     <string name="login_textview">login</string>
     <string name="username_textview">Firstname Lastname</string>
-    <string name="title_activity_board">BoardActivity</string>
+    <string name="title_activity_board">Board</string>
     <string name="title_activity_planning">Planning</string>
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_settings">SettingsActivity</string>
-    <string name="title_settings">Settings</string>
+    <string name="title_activity_settings">Settings</string>
 
 </resources>
