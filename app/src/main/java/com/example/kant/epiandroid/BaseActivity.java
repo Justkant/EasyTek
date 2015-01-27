@@ -22,7 +22,9 @@ import java.util.List;
 
 /**
  * Created by Quentin on 23/01/2015.
+ * EpiAndroid Project.
  */
+
 public class BaseActivity extends ActionBarActivity implements DrawerAdapter.ClickListener {
 
     protected static final int HOME_ID = 0;
@@ -34,7 +36,6 @@ public class BaseActivity extends ActionBarActivity implements DrawerAdapter.Cli
     private ActionBarDrawerToggle mActionBarDrawerToggle;
     private Toolbar toolbar;
     private Handler mHandler;
-    private RecyclerView mRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +63,7 @@ public class BaseActivity extends ActionBarActivity implements DrawerAdapter.Cli
             }
         });
 
-        mRecyclerView = (RecyclerView) findViewById(R.id.drawer_recycler);
+        RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.drawer_recycler);
 
         DrawerAdapter mDrawerAdapter = new DrawerAdapter(this,
                 getDrawerData(this));
@@ -152,6 +153,7 @@ public class BaseActivity extends ActionBarActivity implements DrawerAdapter.Cli
         mDrawerLayout.closeDrawer(Gravity.START);
     }
 
+    // TODO: implemant function
     private void setSelectedNavDrawerItem(int position) {
     }
 
@@ -159,7 +161,7 @@ public class BaseActivity extends ActionBarActivity implements DrawerAdapter.Cli
         Intent intent;
         switch (position) {
             case HOME_ID:
-                intent = new Intent(this, MainActivity.class);
+                intent = new Intent(this, HomeActivity.class);
                 startActivity(intent);
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 finish();

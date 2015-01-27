@@ -22,8 +22,7 @@ public class SlidingTabPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        BoardFragment boardFragment = BoardFragment.getInstance(position);
-        return boardFragment;
+        return BoardFragment.getInstance(position);
     }
 
     @Override

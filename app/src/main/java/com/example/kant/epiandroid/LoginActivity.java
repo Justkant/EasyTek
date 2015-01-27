@@ -1,12 +1,11 @@
 package com.example.kant.epiandroid;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -18,7 +17,8 @@ import retrofit.RestAdapter;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
-public class LoginFragment extends Fragment {
+public class LoginActivity extends BaseActivity {
+
     private EditText mLogin;
     private EditText mPassword;
     private Button mBtnLogin;
@@ -28,22 +28,29 @@ public class LoginFragment extends Fragment {
     private EpitechAPI api;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        Toolbar toolbar = getActionBarToolbar();
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+
         restAdapter = new RestAdapter.Builder()
                 .setEndpoint(getString(R.string.base_url))
                 .build();
 
         api = restAdapter.create(EpitechAPI.class);
-    }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_login, container, false);
-        mLogin = (EditText) view.findViewById(R.id.loginText);
-        mPassword = (EditText) view.findViewById(R.id.passwordText);
-        mBtnLogin = (Button) view.findViewById(R.id.loginButton);
+        mLogin = (EditText) findViewById(R.id.loginText);
+        mPassword = (EditText) findViewById(R.id.passwordText);
+        mBtnLogin = (Button) findViewById(R.id.loginButton);
 
         mLogin.addTextChangedListener(new TextWatcher() {
             @Override
@@ -88,8 +95,9 @@ public class LoginFragment extends Fragment {
                 api.loginPost(mLogin.getText().toString(), mPassword.getText().toString(), new Callback<Login>() {
                     @Override
                     public void success(Login login, Response response) {
-                        MySharedPreferences.saveToPreferences(getActivity(), getString(R.string.token_string), login.token);
-                        toggleFragment();
+                        MySharedPreferences.saveToPreferences(getBaseContext(), getString(R.string.token_string), login.token);
+                        startActivity(new Intent(getBaseContext(), HomeActivity.class));
+                        finish();
                     }
 
                     @Override
@@ -100,15 +108,6 @@ public class LoginFragment extends Fragment {
                 });
             }
         });
-
-        return view;
-    }
-
-    private void toggleFragment() {
-        getActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container, new HomeFragment())
-                .remove(this)
-                .commit();
     }
 
     private void validateLogin(String text) {

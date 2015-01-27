@@ -29,7 +29,7 @@ public class DrawerAdapter extends RecyclerView.Adapter<DrawerAdapter.MyViewHold
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View view = inflater.inflate(R.layout.drawer_raw, viewGroup, false);
+        View view = inflater.inflate(R.layout.drawer_row, viewGroup, false);
         return new MyViewHolder(view);
     }
 
@@ -60,8 +60,8 @@ public class DrawerAdapter extends RecyclerView.Adapter<DrawerAdapter.MyViewHold
         public MyViewHolder(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
-            title = (TextView) itemView.findViewById(R.id.row_text);
-            icon = (ImageView) itemView.findViewById(R.id.raw_icon);
+            title = (TextView) itemView.findViewById(R.id.row_title);
+            icon = (ImageView) itemView.findViewById(R.id.row_icon);
         }
 
         @Override
