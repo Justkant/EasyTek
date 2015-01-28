@@ -2,6 +2,8 @@ package com.example.kant.epiandroid;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.kant.epiandroid.EpitechAPI.EpitechAPI;
 import com.example.kant.epiandroid.EpitechAPI.HomeInfos;
@@ -22,6 +24,7 @@ public class HomeActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
         RestAdapter restAdapter = new RestAdapter.Builder()
                 .setEndpoint(getString(R.string.base_url))
                 .build();
@@ -49,6 +52,26 @@ public class HomeActivity extends BaseActivity {
             public void failure(RetrofitError retrofitError) {
             }
         });
+
+        int[] buttonIdTab = {
+                R.id.modules_button,
+                R.id.activities_button,
+                R.id.projects_button,
+                R.id.susies_button,
+                R.id.marks_button
+        };
+
+        for (int i = 0; i < buttonIdTab.length; i++) {
+            Button button = (Button) findViewById(buttonIdTab[i]);
+            final int finalI = i;
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    goToNavDrawerItem(BOARD_ID, finalI);
+                }
+            });
+        }
+
     }
 
     @Override

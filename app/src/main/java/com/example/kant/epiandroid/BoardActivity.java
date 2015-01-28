@@ -14,6 +14,9 @@ public class BoardActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_board);
 
+        Bundle b = getIntent().getExtras();
+        int tabId = b.getInt("tabId");
+
         getActionBarToolbar().setTitle(R.string.title_activity_board);
         setSupportActionBar(getActionBarToolbar());
 
@@ -22,6 +25,7 @@ public class BoardActivity extends BaseActivity {
 
         mPager.setAdapter(new SlidingTabPagerAdapter(getSupportFragmentManager(), this));
         mTabs.setViewPager(mPager);
+        mPager.setCurrentItem(tabId);
     }
 
 
