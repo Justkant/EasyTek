@@ -1,6 +1,7 @@
 package com.example.kant.epiandroid;
 
 import android.os.Bundle;
+import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -35,6 +36,16 @@ public class SettingsActivity extends BaseActivity {
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.preferences);
+
+            Preference mdeco = findPreference("deco_button");
+            mdeco.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference arg0) {
+                    MySharedPreferences.saveToPreferences(getActivity(), getString(R.string.token_string), "");
+                    getActivity().finish();
+                    return true;
+                }
+            });
         }
 
     }

@@ -55,4 +55,13 @@ public class HomeActivity extends BaseActivity {
     protected int getSelfNavDrawerItem() {
         return HOME_ID;
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (MySharedPreferences.readToPreferences(this, getString(R.string.token_string), getString(R.string.empty_string)).length() == 0) {
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
+        }
+    }
 }
