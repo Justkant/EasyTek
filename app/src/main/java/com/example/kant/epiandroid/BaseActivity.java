@@ -139,12 +139,12 @@ public class BaseActivity extends ActionBarActivity implements DrawerAdapter.Cli
         }
 
         if (isSpecialItem(position)) {
-            goToNavDrawerItem(position);
+            goToNavDrawerItem(position, 0);
         } else {
             mHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    goToNavDrawerItem(position);
+                    goToNavDrawerItem(position, 0);
                 }
             }, 250);
             setSelectedNavDrawerItem(position);
@@ -157,7 +157,7 @@ public class BaseActivity extends ActionBarActivity implements DrawerAdapter.Cli
     private void setSelectedNavDrawerItem(int position) {
     }
 
-    private void goToNavDrawerItem(int position) {
+    protected void goToNavDrawerItem(int position, final int tabId) {
         Intent intent;
         switch (position) {
             case HOME_ID:
@@ -168,6 +168,7 @@ public class BaseActivity extends ActionBarActivity implements DrawerAdapter.Cli
                 break;
             case BOARD_ID:
                 intent = new Intent(this, BoardActivity.class);
+                intent.putExtra("tabId", tabId);
                 startActivity(intent);
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 finish();

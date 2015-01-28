@@ -49,7 +49,7 @@ public class DrawerAdapter extends RecyclerView.Adapter<DrawerAdapter.MyViewHold
     }
 
     public interface ClickListener {
-        public void itemClicked(final int position);
+        public void itemClicked(int position);
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
