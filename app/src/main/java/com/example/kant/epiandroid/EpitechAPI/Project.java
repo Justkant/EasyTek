@@ -1,5 +1,8 @@
 package com.example.kant.epiandroid.EpitechAPI;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +10,7 @@ import java.util.List;
  * Created by Quentin on 29/01/2015.
  * EpiAndroid Project.
  */
-public class Project {
+public class Project implements Serializable {
     public String codeacti;
     public String project;
     public String acti_title;

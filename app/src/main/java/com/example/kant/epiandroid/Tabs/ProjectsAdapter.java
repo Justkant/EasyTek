@@ -36,7 +36,7 @@ public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.MyView
 
     @Override
     public void onBindViewHolder(MyViewHolder myViewHolder, int i) {
-        myViewHolder.title.setText(projects.get(i).project);
+        myViewHolder.title.setText(projects.get(i).acti_title);
     }
 
     @Override
