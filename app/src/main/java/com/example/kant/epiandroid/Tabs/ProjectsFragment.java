@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 
 import com.example.kant.epiandroid.EpitechAPI.EpitechAPI;
 import com.example.kant.epiandroid.EpitechAPI.Project;
-import com.example.kant.epiandroid.EpitechAPI.Projects;
 import com.example.kant.epiandroid.MySharedPreferences;
 import com.example.kant.epiandroid.ProjectItemActivity;
 import com.example.kant.epiandroid.R;
@@ -56,24 +55,30 @@ public class ProjectsFragment extends Fragment implements ProjectsAdapter.ClickL
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         api.projectsGet(MySharedPreferences.readToPreferences(getActivity(), getString(R.string.token_string), getString(R.string.empty_string)),
-                new Callback<List<Project> >() {
-            @Override
-            public void success(List<Project> projects, Response response) {
-                adapterData.clear();
-                for (int i = 0; i < projects.size(); ++i) {
-                    Log.d("type", projects.get(i).type_acti);
-                    Log.d("loca", projects.get(i).code_location);
-                    if (!projects.get(i).type_acti.equals("Suivis"))
-                        adapterData.add(projects.get(i));
-                }
-                mProjectsAdapter.notifyDataSetChanged();
-            }
+                new Callback<List<Project>>() {
+                    @Override
+                    public void success(List<Project> projects, Response response) {
+                        adapterData.clear();
+                        for (int i = 0; i < projects.size(); ++i) {
 
-            @Override
-            public void failure(RetrofitError error) {
-                Log.d(TAG, error.getMessage());
-            }
-        });
+                            if (!projects.get(i).type_acti.equals("Suivis")
+                                    && !projects.get(i).type_acti.equals("TD")
+                                    && !projects.get(i).type_acti.equals("Cours")
+                                    && !projects.get(i).type_acti.equals("Event")
+                                    && !projects.get(i).type_acti.equals("Test Machine")
+                                    && !projects.get(i).type_acti.equals("Toeic")) {
+                                adapterData.add(projects.get(i));
+                                Log.d("type projet ", projects.get(i).type_acti);
+                            }
+                        }
+                        mProjectsAdapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void failure(RetrofitError error) {
+                        Log.d(TAG, error.getMessage());
+                    }
+                });
 
         return view;
     }

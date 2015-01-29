@@ -2,6 +2,7 @@ package com.example.kant.epiandroid;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ import retrofit.client.Response;
 
 public class HomeActivity extends BaseActivity {
 
+    private static final String TAG = "Home Activity";
     private HomeInfos mHomeInfos;
     private EpitechAPI api;
 
@@ -46,11 +48,14 @@ public class HomeActivity extends BaseActivity {
             public void success(HomeInfos homeInfos, Response response) {
                 mHomeInfos = homeInfos;
                 setTextHome();
+                MySharedPreferences.saveToPreferences(getBaseContext(), "location", mHomeInfos.infos.location.substring(0, mHomeInfos.infos.location.indexOf("/")));
             }
 
             @Override
             public void failure(RetrofitError retrofitError) {
                 mHomeInfos = null;
+                Log.d(TAG, retrofitError.getMessage());
+
             }
         });
 

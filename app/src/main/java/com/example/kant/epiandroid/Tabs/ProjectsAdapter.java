@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.kant.epiandroid.EpitechAPI.Project;
-import com.example.kant.epiandroid.EpitechAPI.Projects;
 import com.example.kant.epiandroid.R;
 
 import java.util.List;
@@ -53,7 +52,7 @@ public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.MyView
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private final TextView title;
+        TextView title;
 
         public MyViewHolder(View itemView) {
             super(itemView);

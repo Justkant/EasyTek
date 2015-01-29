@@ -11,7 +11,7 @@ public class Infos {
     public String internal_email;
     public String lastname;
     public String firstname;
-    public Userinfo userinfo;
+    public String userinfo;
     public boolean referent_used;
     public String picture;
     public String picture_fun;
@@ -33,7 +33,7 @@ public class Infos {
     public String school_title;
     public String old_id_promo;
     public String old_id_location;
-    public List<String> rights;
+    public Object rights;
     public boolean invited;
     public int studentyear;
     public boolean admin;
