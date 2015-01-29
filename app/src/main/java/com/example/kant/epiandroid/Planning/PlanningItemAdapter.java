@@ -9,12 +9,16 @@ import android.widget.TextView;
 
 import com.example.kant.epiandroid.R;
 
+import org.w3c.dom.Text;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 public class PlanningItemAdapter extends RecyclerView.Adapter<PlanningItemAdapter.MyViewHolder> {
 
     private LayoutInflater inflater;
-    private ClickListener clickListener;
     private List<PlanningItemData> data;
 
     public PlanningItemAdapter(Context context, List<PlanningItemData> data) {
@@ -33,8 +37,24 @@ public class PlanningItemAdapter extends RecyclerView.Adapter<PlanningItemAdapte
         PlanningItemData bindData = data.get(i);
 
         viewHolder.title.setText(bindData.title);
-        viewHolder.time.setText(bindData.time);
         viewHolder.description.setText(bindData.description);
+
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+
+        viewHolder.time.setText(sdf.format(bindData.dateStart.getTime()) + " - " + sdf.format(bindData.dateEnd.getTime()));
+
+        if (bindData.isFirstOfTheDay)
+        {
+            viewHolder.dateNb.setVisibility(View.VISIBLE);
+            viewHolder.dateDay.setVisibility(View.VISIBLE);
+            viewHolder.dateNb.setText(new SimpleDateFormat("dd", Locale.US).format(bindData.dateStart.getTime()));
+            viewHolder.dateDay.setText(new SimpleDateFormat("EEE", Locale.US).format(bindData.dateStart.getTime()));
+        }
+        else
+        {
+            viewHolder.dateNb.setVisibility(View.GONE);
+            viewHolder.dateDay.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -42,33 +62,22 @@ public class PlanningItemAdapter extends RecyclerView.Adapter<PlanningItemAdapte
         return data.size();
     }
 
-    public void setClickListener(ClickListener clickListener) {
-        this.clickListener = clickListener;
-    }
-
-    public interface ClickListener {
-        public void itemClicked(int position);
-    }
-
-    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView title;
         TextView time;
         TextView description;
 
+        TextView dateNb;
+        TextView dateDay;
+
         public MyViewHolder(View itemView) {
             super(itemView);
-            itemView.setOnClickListener(this);
             title = (TextView) itemView.findViewById(R.id.tvPlanTitle);
             time = (TextView) itemView.findViewById(R.id.tvPlanTime);
             description = (TextView) itemView.findViewById(R.id.tvPlanDescription);
-        }
-
-        @Override
-        public void onClick(View v) {
-            if (clickListener != null) {
-                clickListener.itemClicked(getPosition());
-            }
+            dateNb = (TextView) itemView.findViewById(R.id.tvPlanDateNb);
+            dateDay = (TextView) itemView.findViewById(R.id.tvPlanDateDay);
         }
     }
 }

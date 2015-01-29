@@ -4,10 +4,11 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.example.kant.epiandroid.Planning.PlanningDayAdapter;
-import com.example.kant.epiandroid.Planning.PlanningDayData;
+import com.example.kant.epiandroid.Planning.PlanningItemAdapter;
+import com.example.kant.epiandroid.Planning.PlanningItemData;
 
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 
 public class PlanningActivity extends BaseActivity {
 
@@ -19,22 +20,27 @@ public class PlanningActivity extends BaseActivity {
         getActionBarToolbar().setTitle(R.string.title_activity_planning);
         setSupportActionBar(getActionBarToolbar());
 
-        RecyclerView recyclerView = (RecyclerView)findViewById(R.id.cal_day_recycler_view);
+        RecyclerView recyclerView = (RecyclerView)findViewById(R.id.cal_item_recycler_view);
         recyclerView.setHasFixedSize(true);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        ArrayList<PlanningDayData> data = new ArrayList<PlanningDayData>();
+        ArrayList<PlanningItemData> data = new ArrayList<PlanningItemData>();
         for (int i = 0; i < 10; i++)
         {
-            PlanningDayData newData = new PlanningDayData();
-            newData.dateNb = "" + i;
-            newData.dateDay = "Dim";
+            PlanningItemData newData = new PlanningItemData();
+            newData.title = "Title" + i;
+            newData.dateStart = new GregorianCalendar(2015, 01, 29, 8 + i, 0);
+            newData.dateEnd = new GregorianCalendar(2015, 01, 29, 9 + i, 0);
+            newData.description = "Sunday.. Everyday!";
+
+            newData.isFirstOfTheDay = i == 0;
+
             data.add(newData);
         }
 
-        PlanningDayAdapter adapter = new PlanningDayAdapter(this, data);
+        PlanningItemAdapter adapter = new PlanningItemAdapter(this, data);
         recyclerView.setAdapter(adapter);
     }
 

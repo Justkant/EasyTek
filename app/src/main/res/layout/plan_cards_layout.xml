@@ -1,67 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/card_view"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
-    android:layout_marginLeft="100dp"
-    android:layout_marginRight="10dp"
-    android:layout_marginTop="10dp"
-    android:background="@color/blue"
-    card_view:cardCornerRadius="0dp"
-    card_view:cardElevation="2dp">
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    android:clickable="true">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/drawerList"
+    <TextView
+        android:id="@+id/tvPlanDateNb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="29dp"
+        android:layout_marginStart="29dp"
+        android:padding="0dp"
+        android:text="00"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textIsSelectable="false"
+        android:textSize="30dp"
+        android:layout_alignTop="@+id/view"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/tvPlanDateDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="0dp"
+        android:text="Xxx"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="18dp"
+        android:layout_below="@+id/tvPlanDateNb"
+        android:layout_alignLeft="@+id/tvPlanDateNb"
+        android:layout_alignStart="@+id/tvPlanDateNb" />
+
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:background="@color/drawerBgColor"
-        android:clickable="true">
+        android:layout_height="80dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        card_view:cardCornerRadius="0dp"
+        card_view:cardElevation="2dp"
+        android:id="@+id/view">
 
-        <TextView
-            android:id="@+id/tvPlanTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:text="Title"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/drawerList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:clickable="true">
 
-        <TextView
-            android:id="@+id/tvPlanTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="6:00 - 7:00"
-            android:textSize="12sp"
-            android:layout_centerVertical="true"
-            android:layout_alignLeft="@+id/tvPlanTitle"
-            android:layout_alignStart="@+id/tvPlanTitle"
-            android:textStyle="italic" />
+            <TextView
+                android:id="@+id/tvPlanTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Title"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvPlanTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tvPlanTitle"
+                android:layout_alignStart="@+id/tvPlanTitle"
+                android:layout_centerVertical="true"
+                android:text="6:00 - 7:00"
+                android:textSize="12sp"
+                android:textStyle="italic" />
 
 
-        <TextView
-            android:id="@+id/tvPlanDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="blabalalbal"
-            android:textSize="14sp"
-            android:layout_below="@+id/tvPlanTime"
-            android:layout_alignLeft="@+id/tvPlanTime"
-            android:layout_alignStart="@+id/tvPlanTime" />
+            <TextView
+                android:id="@+id/tvPlanDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tvPlanTime"
+                android:layout_alignStart="@+id/tvPlanTime"
+                android:layout_below="@+id/tvPlanTime"
+                android:text="blabalalbal"
+                android:textSize="14sp" />
 
-        <Button
-            android:id="@+id/button"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sub"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="false" />
-    </RelativeLayout>
+            <Button
+                android:id="@+id/button"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="false"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:text="Sub" />
+        </RelativeLayout>
 
-</android.support.v7.widget.CardView>
+    </android.support.v7.widget.CardView>
 
+</RelativeLayout>

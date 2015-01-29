@@ -14,7 +14,7 @@
         <include layout="@layout/app_bar" />
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/cal_day_recycler_view"
+            android:id="@+id/cal_item_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="vertical" />
