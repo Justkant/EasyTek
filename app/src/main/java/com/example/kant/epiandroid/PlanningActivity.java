@@ -4,8 +4,10 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.example.kant.epiandroid.Planning.PlanningDayAdapter;
+import com.example.kant.epiandroid.Planning.PlanningDayData;
+
 import java.util.ArrayList;
-import java.util.Calendar;
 
 public class PlanningActivity extends BaseActivity {
 
@@ -17,25 +19,22 @@ public class PlanningActivity extends BaseActivity {
         getActionBarToolbar().setTitle(R.string.title_activity_planning);
         setSupportActionBar(getActionBarToolbar());
 
-        RecyclerView recyclerView = (RecyclerView)findViewById(R.id.cal_recycler_view);
+        RecyclerView recyclerView = (RecyclerView)findViewById(R.id.cal_day_recycler_view);
         recyclerView.setHasFixedSize(true);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        ArrayList<CalendarData> data = new ArrayList<CalendarData>();
+        ArrayList<PlanningDayData> data = new ArrayList<PlanningDayData>();
         for (int i = 0; i < 10; i++)
         {
-            CalendarData newData = new CalendarData();
-            newData.title = "title" + i;
-            newData.time = "8:00 - 9:00";
-            newData.description = "Quentin est un énorme pd";
+            PlanningDayData newData = new PlanningDayData();
+            newData.dateNb = "" + i;
+            newData.dateDay = "Dim";
             data.add(newData);
         }
 
-        ArrayList<CalendarData> removedData = new ArrayList<CalendarData>();
-
-        CalendarAdapter adapter = new CalendarAdapter(this, data);
+        PlanningDayAdapter adapter = new PlanningDayAdapter(this, data);
         recyclerView.setAdapter(adapter);
     }
 
