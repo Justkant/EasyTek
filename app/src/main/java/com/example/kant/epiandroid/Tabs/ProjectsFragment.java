@@ -1,5 +1,6 @@
 package com.example.kant.epiandroid.Tabs;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,6 +14,7 @@ import com.example.kant.epiandroid.EpitechAPI.EpitechAPI;
 import com.example.kant.epiandroid.EpitechAPI.Project;
 import com.example.kant.epiandroid.EpitechAPI.Projects;
 import com.example.kant.epiandroid.MySharedPreferences;
+import com.example.kant.epiandroid.ProjectItemActivity;
 import com.example.kant.epiandroid.R;
 
 import java.util.ArrayList;
@@ -58,7 +60,12 @@ public class ProjectsFragment extends Fragment implements ProjectsAdapter.ClickL
             @Override
             public void success(List<Project> projects, Response response) {
                 adapterData.clear();
-                adapterData.addAll(projects);
+                for (int i = 0; i < projects.size(); ++i) {
+                    Log.d("type", projects.get(i).type_acti);
+                    Log.d("loca", projects.get(i).code_location);
+                    if (!projects.get(i).type_acti.equals("Suivis"))
+                        adapterData.add(projects.get(i));
+                }
                 mProjectsAdapter.notifyDataSetChanged();
             }
 
@@ -73,6 +80,8 @@ public class ProjectsFragment extends Fragment implements ProjectsAdapter.ClickL
 
     @Override
     public void itemClicked(int position) {
-
+        Intent intent = new Intent(getActivity(), ProjectItemActivity.class);
+        intent.putExtra("item", adapterData.get(position));
+        startActivity(intent);
     }
 }

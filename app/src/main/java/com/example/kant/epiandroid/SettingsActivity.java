@@ -13,9 +13,8 @@ public class SettingsActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         Toolbar toolbar = getActionBarToolbar();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setSubtitle(R.string.title_activity_settings);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
