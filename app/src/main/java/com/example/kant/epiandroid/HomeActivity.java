@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.kant.epiandroid.EpitechAPI.EpitechAPI;
 import com.example.kant.epiandroid.EpitechAPI.HomeInfos;
@@ -40,15 +41,16 @@ public class HomeActivity extends BaseActivity {
         getActionBarToolbar().setTitle(R.string.title_activity_main);
         setSupportActionBar(getActionBarToolbar());
 
-        api.infosPost(MySharedPreferences.readToPreferences(this, getString(R.string.token_string), getString(R.string.empty_string)), new Callback<HomeInfos>() {
+        api.infosGet(MySharedPreferences.readToPreferences(this, getString(R.string.token_string), getString(R.string.empty_string)), new Callback<HomeInfos>() {
             @Override
             public void success(HomeInfos homeInfos, Response response) {
                 mHomeInfos = homeInfos;
-                //mHomeInfos.getInfos().getLogin();
+                setTextHome();
             }
 
             @Override
             public void failure(RetrofitError retrofitError) {
+                mHomeInfos = null;
             }
         });
 
@@ -71,6 +73,11 @@ public class HomeActivity extends BaseActivity {
             });
         }
 
+    }
+
+    private void setTextHome() {
+        TextView text = (TextView) findViewById(R.id.home_text);
+        text.setText(mHomeInfos.infos.firstname + " " + mHomeInfos.infos.lastname);
     }
 
     @Override
