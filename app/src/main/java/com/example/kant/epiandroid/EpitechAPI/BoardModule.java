@@ -7,9 +7,9 @@ package com.example.kant.epiandroid.EpitechAPI;
 
 public class BoardModule {
     public String title;
-    public String titleLink;
-    public String timelineStart;
-    public String timelineEnd;
-    public String timelineBarre;
-    public String dateInscription;
+    public String title_link;
+    public String timeline_start;
+    public String timeline_end;
+    public String timeline_barre;
+    public String date_inscription;
 }

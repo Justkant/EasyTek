@@ -110,7 +110,7 @@ public interface EpitechAPI {
                           @Query(Constants.SCOLARYEAR) String scolaryear,
                           @Query(Constants.CODEMODULE) String codemodule,
                           @Query(Constants.CODEINSTANCE) String codeinstance,
-                          Callback<Module> callback);
+                          Callback<ModuleInfo> callback);
 
     @FormUrlEncoded
     @POST(Constants.MODULE_URL)
@@ -165,7 +165,7 @@ public interface EpitechAPI {
 
     @GET(Constants.ALERTS_URL)
     public void alertsGet(@Query(Constants.TOKEN) String token,
-                          Callback<Alerts> callback);
+                          Callback<List<Alert>> callback);
 
     @GET(Constants.PHOTO_URL)
     public void photoGet(@Query(Constants.TOKEN) String token,
@@ -194,6 +194,6 @@ public interface EpitechAPI {
     @GET(Constants.USER_URL)
     public void userGet(@Query(Constants.TOKEN) String token,
                         @Query(Constants.LOGIN) String login,
-                        Callback<User> callback);
+                        Callback<Infos> callback);
 
 }

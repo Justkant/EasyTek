@@ -2,14 +2,14 @@ package com.example.kant.epiandroid.EpitechAPI;
 
 public class Current {
 
-    public String activeLog;
-    public String creditsMin;
-    public String creditsNorm;
-    public String creditsObj;
-    public String nslogMin;
-    public String nslogNorm;
-    public String semesterCode;
-    public String semesterNum;
+    public String active_log;
+    public String credits_min;
+    public String credits_norm;
+    public String credits_obj;
+    public String nslog_min;
+    public String nslog_norm;
+    public String semester_code;
+    public String semester_num;
     public int achieved;
     public int failed;
     public int inprogress;

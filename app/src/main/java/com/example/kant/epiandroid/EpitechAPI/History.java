@@ -8,7 +8,7 @@ public class History {
     public String date;
     public String id;
     public String visible;
-    public String idActivite;
+    public String id_activite;
     public String _class;
 
 }
