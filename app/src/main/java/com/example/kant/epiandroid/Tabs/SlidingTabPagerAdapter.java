@@ -5,7 +5,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.example.kant.epiandroid.BoardFragment;
 import com.example.kant.epiandroid.R;
 
 /**
@@ -13,7 +12,12 @@ import com.example.kant.epiandroid.R;
  */
 public class SlidingTabPagerAdapter extends FragmentPagerAdapter {
 
-    String[] tabs;
+    private final static int MODULES_POS = 0;
+    private final static int ACTIVITIES_POS = 1;
+    private final static int PROJECTS_POS = 2;
+    private final static int SUSIES_POS = 3;
+    private final static int MARKS_POS = 4;
+    private String[] tabs;
 
     public SlidingTabPagerAdapter(FragmentManager fm, Context context) {
         super(fm);
@@ -22,7 +26,25 @@ public class SlidingTabPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return BoardFragment.getInstance(position);
+        Fragment fragment = null;
+        switch (position) {
+            case MODULES_POS:
+                fragment = new ModulesFragment();
+                break;
+            case ACTIVITIES_POS:
+                fragment = new ActivitiesFragment();
+                break;
+            case PROJECTS_POS:
+                fragment = new ProjectsFragment();
+                break;
+            case SUSIES_POS:
+                fragment = new SusiesFragment();
+                break;
+            case MARKS_POS:
+                fragment = new MarksFragment();
+                break;
+        }
+        return fragment;
     }
 
     @Override

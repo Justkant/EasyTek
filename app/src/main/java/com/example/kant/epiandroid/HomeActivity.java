@@ -13,7 +13,6 @@ import retrofit.RestAdapter;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
-// TODO: HOME ACTIVITY !!!
 public class HomeActivity extends BaseActivity {
 
     private HomeInfos mHomeInfos;
