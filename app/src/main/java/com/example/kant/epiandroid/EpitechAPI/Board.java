@@ -5,9 +5,9 @@ import java.util.List;
 
 public class Board {
 
-    public List<Projet> projets = new ArrayList<Projet>();
+    public List<BoardProject> boardProjects = new ArrayList<BoardProject>();
     public List<Object> notes = new ArrayList<Object>();
-    public List<Susie> susies = new ArrayList<Susie>();
+    public List<BoardSusie> susies = new ArrayList<BoardSusie>();
     public List<BoardActivite> board_activites = new ArrayList<BoardActivite>();
     public List<BoardModule> modules = new ArrayList<BoardModule>();
     public List<Object> stages = new ArrayList<Object>();

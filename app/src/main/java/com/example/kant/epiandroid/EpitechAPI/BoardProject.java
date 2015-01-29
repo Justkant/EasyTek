@@ -1,6 +1,6 @@
 package com.example.kant.epiandroid.EpitechAPI;
 
-public class Projet {
+public class BoardProject {
 
     public String title;
     public String titleLink;
