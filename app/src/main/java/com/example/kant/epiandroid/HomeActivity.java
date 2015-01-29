@@ -48,7 +48,7 @@ public class HomeActivity extends BaseActivity {
             public void success(HomeInfos homeInfos, Response response) {
                 mHomeInfos = homeInfos;
                 setTextHome();
-                MySharedPreferences.saveToPreferences(getBaseContext(), "location", mHomeInfos.infos.location.substring(0, mHomeInfos.infos.location.indexOf("/")));
+                MySharedPreferences.saveToPreferences(getBaseContext(), "location", mHomeInfos.infos.location.substring(mHomeInfos.infos.location.indexOf("/") + 1, mHomeInfos.infos.location.length()));
             }
 
             @Override

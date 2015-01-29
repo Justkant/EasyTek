@@ -60,11 +60,11 @@ public class ActivitiesFragment extends Fragment implements ActivitiesAdapter.Cl
 
                             if (!projects.get(i).type_acti.equals("Projet")
                                     && !projects.get(i).type_acti.equals("Projets")
-                                    && !projects.get(i).type_acti.equals("Mini-Projet")) {
-                                    //&& MySharedPreferences.readToPreferences(getActivity(), "location", getString(R.string.empty_string)).equals(projects.get(i).code_location)) {
+                                    && !projects.get(i).type_acti.equals("Mini-Projets")
+                                    && !projects.get(i).type_acti.equals("Soutenance")
+                                    && MySharedPreferences.readToPreferences(getActivity(), "location", getString(R.string.empty_string)).equals(projects.get(i).code_location)) {
                                 adapterData.add(projects.get(i));
-                                Log.d("ma gros bite", MySharedPreferences.readToPreferences(getActivity(), "location", "false"));
-                                Log.d("location activities", projects.get(i).code_location);
+                                Log.d("code activities", projects.get(i).type_acti);
                             }
                         }
                         mActivitiesAdapter.notifyDataSetChanged();
