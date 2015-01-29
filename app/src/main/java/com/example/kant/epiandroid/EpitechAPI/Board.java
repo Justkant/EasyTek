@@ -9,7 +9,7 @@ public class Board {
     public List<Object> notes = new ArrayList<Object>();
     public List<Susie> susies = new ArrayList<Susie>();
     public List<Activite> activites = new ArrayList<Activite>();
-    public List<Module> modules = new ArrayList<Module>();
+    public List<BoardModule> modules = new ArrayList<BoardModule>();
     public List<Object> stages = new ArrayList<Object>();
     public List<Object> tickets = new ArrayList<Object>();
 

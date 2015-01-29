@@ -5,8 +5,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.example.kant.epiandroid.EpitechAPI.Project;
+import com.example.kant.epiandroid.EpitechAPI.Projects;
 import com.example.kant.epiandroid.R;
+
+import java.util.List;
 
 /**
  * Created by Quentin on 28/01/2015.
@@ -14,13 +19,13 @@ import com.example.kant.epiandroid.R;
  */
 public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.MyViewHolder> {
 
-    private final Object data;
+    private List<Project> projects;
     private LayoutInflater inflater;
     private ClickListener clickListener;
 
-    public ProjectsAdapter(Context context, Object data) {
+    public ProjectsAdapter(Context context, List<Project> projects) {
         inflater = LayoutInflater.from(context);
-        this.data = data;
+        this.projects = projects;
     }
 
     @Override
@@ -31,12 +36,12 @@ public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.MyView
 
     @Override
     public void onBindViewHolder(MyViewHolder myViewHolder, int i) {
-
+        myViewHolder.title.setText(projects.get(i).project);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return projects.size();
     }
 
     public void setClickListener(ClickListener clickListener) {
@@ -48,9 +53,12 @@ public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.MyView
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        private final TextView title;
+
         public MyViewHolder(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
+            title = (TextView) itemView.findViewById(R.id.project_title);
         }
 
         @Override

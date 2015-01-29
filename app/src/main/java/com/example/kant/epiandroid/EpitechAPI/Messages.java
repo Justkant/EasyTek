@@ -5,6 +5,9 @@ package com.example.kant.epiandroid.EpitechAPI;
  * EpiAndroid Project.
  */
 
-// TODO: Implementation
 public class Messages {
+    public String title;
+    public User user;
+    public String content;
+    public String date;
 }

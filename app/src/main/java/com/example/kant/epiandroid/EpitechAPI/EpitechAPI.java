@@ -1,5 +1,7 @@
 package com.example.kant.epiandroid.EpitechAPI;
 
+import java.util.List;
+
 import retrofit.Callback;
 import retrofit.http.DELETE;
 import retrofit.http.Field;
@@ -56,7 +58,7 @@ public interface EpitechAPI {
 
     @GET(Constants.PROJECTS_URL)
     public void projectsGet(@Query(Constants.TOKEN) String token,
-                            Callback<Projects> callback);
+                            Callback<List<Project>> callback);
 
     @GET(Constants.PROJECT_URL)
     public void projectGet(@Query(Constants.TOKEN) String token,
