@@ -153,7 +153,7 @@ public class BaseActivity extends ActionBarActivity implements DrawerAdapter.Cli
         mDrawerLayout.closeDrawer(Gravity.START);
     }
 
-    // TODO: implemant function
+    // TODO: implement function
     private void setSelectedNavDrawerItem(int position) {
     }
 
