@@ -37,12 +37,12 @@ public interface EpitechAPI {
                           @Query(Constants.START) String start,
                           @Query(Constants.END) String end,
                           @Query(Constants.GET) String get,
-                          Callback<Susies> callback);
+                          Callback<List<Susie>> callback);
 
     @GET(Constants.SUSIE_URL)
     public void susieGet(@Query(Constants.TOKEN) String token,
                          @Query(Constants.ID) String id,
-                         Callback<SusieId> callback);
+                         Callback<Susie> callback);
 
     @FormUrlEncoded()
     @POST(Constants.SUSIE_URL)

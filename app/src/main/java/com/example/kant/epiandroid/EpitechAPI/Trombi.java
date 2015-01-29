@@ -8,7 +8,6 @@ import java.util.List;
  * EpiAndroid Project.
  */
 
-// TODO: Implementation
 public class Trombi {
     public List<TrombiItem> items = new ArrayList<TrombiItem>();
     public int total;

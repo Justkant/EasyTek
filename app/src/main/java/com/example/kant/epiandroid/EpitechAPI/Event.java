@@ -5,7 +5,6 @@ package com.example.kant.epiandroid.EpitechAPI;
  * EpiAndroid Project.
  */
 
-// TODO: Implementation
 public class Event {
 
     public String scolaryear;
