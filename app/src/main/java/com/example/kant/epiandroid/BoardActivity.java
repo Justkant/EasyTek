@@ -2,11 +2,8 @@ package com.example.kant.epiandroid;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.View;
 
 import com.example.kant.epiandroid.Tabs.SlidingTabLayout;
 import com.example.kant.epiandroid.Tabs.SlidingTabPagerAdapter;
@@ -14,25 +11,31 @@ import com.example.kant.epiandroid.Tabs.SlidingTabPagerAdapter;
 
 public class BoardActivity extends BaseActivity {
 
+    private int tabId;
+    private ViewPager mPager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_board);
 
-
-
         Bundle b = getIntent().getExtras();
-        int tabId = b.getInt("tabId");
+        tabId = b.getInt("tabId");
 
         getActionBarToolbar().setTitle(R.string.title_activity_board);
         setSupportActionBar(getActionBarToolbar());
 
-        ViewPager mPager = (ViewPager) findViewById(R.id.pager);
+        mPager = (ViewPager) findViewById(R.id.pager);
         SlidingTabLayout mTabs = (SlidingTabLayout) findViewById(R.id.tabs);
 
         mPager.setAdapter(new SlidingTabPagerAdapter(getSupportFragmentManager(), this));
         mTabs.setViewPager(mPager);
-        mPager.setCurrentItem(tabId);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mPager.setCurrentItem(tabId, true);
+            }
+        }, 100);
     }
 
     @Override

@@ -17,7 +17,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.kant.epiandroid.EpitechAPI.EpitechAPI;
-import com.example.kant.epiandroid.EpitechAPI.Item;
 import com.example.kant.epiandroid.EpitechAPI.Susie;
 import com.example.kant.epiandroid.MySharedPreferences;
 import com.example.kant.epiandroid.R;
@@ -57,7 +56,6 @@ public class SusiesFragment extends Fragment implements SusiesAdapter.ClickListe
             }
         });
         ((TextView) view.findViewById(R.id.test)).setVisibility(View.VISIBLE);
-
 
 
         sendRequest(view, "2015/01/28", "2015/01/28", TYPE);
@@ -112,8 +110,8 @@ public class SusiesFragment extends Fragment implements SusiesAdapter.ClickListe
 
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-        switch(item.getItemId()){
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
             case R.id.all:
                 TYPE = "all";
                 return true;
