@@ -47,20 +47,23 @@ public class SusieItemActivity extends BaseActivity {
         susie = (Susie) getIntent().getSerializableExtra("item");
         ((TextView) findViewById(R.id.susie_title)).setText(susie.title);
         ((TextView) findViewById(R.id.description)).setText(susie.description);
-        ((TextView) findViewById(R.id.date)).setText(susie.start + " - " + susie.end);
-        ((TextView) findViewById(R.id.period)).setText(susie.title);
+        ((TextView) findViewById(R.id.date)).setText("Date: " + susie.start.substring(0, susie.start.indexOf(" ")));
+        ((TextView) findViewById(R.id.period)).setText("Start at " + susie.start.substring(susie.start.indexOf(" "), susie.start.length()) + " End at " + susie.end.substring(susie.end.indexOf(" "), susie.end.length()));
+
 
         api.susieGet(MySharedPreferences.readToPreferences(this, getString(R.string.token_string), getString(R.string.empty_string)), susie.id, susie.id_calendar,
                 new Callback<Susie>() {
                     @Override
                     public void success(Susie susies, Response response) {
+                        //set nb_place
+                        ((TextView) findViewById(R.id.place)).setText("Number of registered: " + susies.logins.length + "/" + susies.nb_place);
                         LinearLayout ll = (LinearLayout) findViewById(R.id.people);
 
                         if (susies.logins != null) {
                             for (int i = 0; i < susies.logins.length; ++i) {
                                 View custom = getLayoutInflater().inflate(R.layout.susie_registered_layout, ll, false);
                                 TextView tv = (TextView) custom.findViewById(R.id.name);
-                                tv.setText(susies.logins[i].login);
+                                tv.setText(susies.logins[i].title);
                                 new DownloadImageTask((ImageView) custom.findViewById(R.id.img))
                                         .execute(susies.logins[i].picture);
 
