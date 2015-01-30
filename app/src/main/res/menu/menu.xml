@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="all"
+        android:id="@+id/all" />
+
+    <item android:title="free"
+        android:id="@+id/free" />
+
+    <item android:title="registered"
+        android:id="@+id/registered" />
+
+</menu>

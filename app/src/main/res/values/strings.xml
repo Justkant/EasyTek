@@ -40,5 +40,9 @@
     <string name="home_projects_button">Projects</string>
     <string name="home_susies_button">Susies</string>
     <string name="home_marks_button">Marks</string>
+    <string name="left"><![CDATA[<]]></string>
+    <string name="right"><![CDATA[>]]></string>
+    <string name="date_proto">YYYY/MM/JJ</string>
+    <string name="to">to</string>
 
 </resources>

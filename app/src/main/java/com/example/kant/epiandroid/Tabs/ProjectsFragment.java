@@ -68,7 +68,6 @@ public class ProjectsFragment extends Fragment implements ProjectsAdapter.ClickL
                                     && !projects.get(i).type_acti.equals("Test Machine")
                                     && !projects.get(i).type_acti.equals("Toeic")) {
                                 adapterData.add(projects.get(i));
-                                Log.d("type projet ", projects.get(i).type_acti);
                             }
                         }
                         mProjectsAdapter.notifyDataSetChanged();

@@ -7,7 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.kant.epiandroid.EpitechAPI.Project;
+import com.example.kant.epiandroid.EpitechAPI.Susie;
 import com.example.kant.epiandroid.R;
+
+import java.util.List;
 
 /**
  * Created by Quentin on 28/01/2015.
@@ -15,13 +19,13 @@ import com.example.kant.epiandroid.R;
  */
 public class SusiesAdapter extends RecyclerView.Adapter<SusiesAdapter.MyViewHolder> {
 
-    private final Object data;
+    private List<Susie> susies;
     private LayoutInflater inflater;
     private ClickListener clickListener;
 
-    public SusiesAdapter(Context context, Object data) {
+    public SusiesAdapter(Context context, List<Susie> susies) {
         inflater = LayoutInflater.from(context);
-        this.data = data;
+        this.susies = susies;
     }
 
     @Override
@@ -32,12 +36,12 @@ public class SusiesAdapter extends RecyclerView.Adapter<SusiesAdapter.MyViewHold
 
     @Override
     public void onBindViewHolder(MyViewHolder myViewHolder, int i) {
-        myViewHolder.title.setText("Yo");
+        myViewHolder.title.setText(susies.get(i).title);
     }
 
     @Override
     public int getItemCount() {
-        return 3;
+        return susies.size();
     }
 
     public void setClickListener(ClickListener clickListener) {
