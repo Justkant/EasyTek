@@ -2,7 +2,6 @@ package com.example.kant.epiandroid.Tabs;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -10,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.kant.epiandroid.BaseActivity;
 import com.example.kant.epiandroid.EpitechAPI.EpitechAPI;
 import com.example.kant.epiandroid.EpitechAPI.Modules;
 import com.example.kant.epiandroid.MySharedPreferences;
@@ -48,7 +48,7 @@ public class ModulesFragment extends Fragment implements ModulesAdapter.ClickLis
 
         mRecyclerView.setAdapter(mModulesAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mRecyclerView.setOnScrollListener(new RecyclerViewScrollListener(((ActionBarActivity)getActivity()).getSupportActionBar()));
+        mRecyclerView.setOnScrollListener(((BaseActivity) getActivity()).getRecyclerScrollListener());
 
         api.modulesGet(MySharedPreferences.readToPreferences(getActivity(), getString(R.string.token_string), ""), new Callback<Modules>() {
             @Override

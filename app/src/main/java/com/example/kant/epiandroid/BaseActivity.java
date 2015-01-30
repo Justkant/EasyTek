@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import com.example.kant.epiandroid.Drawer.DrawerAdapter;
 import com.example.kant.epiandroid.Drawer.DrawerRawInfo;
+import com.example.kant.epiandroid.Tabs.RecyclerViewScrollListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +44,7 @@ public class BaseActivity extends ActionBarActivity implements DrawerAdapter.Cli
     private Handler mHandler;
     private LruCache<String, Bitmap> mMemoryCache;
     private ImageView profileImage;
+    private RecyclerViewScrollListener recyclerScrollListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -160,6 +162,12 @@ public class BaseActivity extends ActionBarActivity implements DrawerAdapter.Cli
         } else {
             super.onBackPressed();
         }
+    }
+
+    public RecyclerViewScrollListener getRecyclerScrollListener() {
+        if (recyclerScrollListener == null)
+            recyclerScrollListener = new RecyclerViewScrollListener(getSupportActionBar());
+        return recyclerScrollListener;
     }
 
     @Override

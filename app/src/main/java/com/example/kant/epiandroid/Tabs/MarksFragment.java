@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.kant.epiandroid.BaseActivity;
 import com.example.kant.epiandroid.R;
 
 /**
@@ -28,7 +29,7 @@ public class MarksFragment extends Fragment implements MarksAdapter.ClickListene
 
         mRecyclerView.setAdapter(mMarksAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mRecyclerView.setOnScrollListener(new RecyclerViewScrollListener(((ActionBarActivity)getActivity()).getSupportActionBar()));
+        mRecyclerView.setOnScrollListener(((BaseActivity)getActivity()).getRecyclerScrollListener());
 
         return view;
     }

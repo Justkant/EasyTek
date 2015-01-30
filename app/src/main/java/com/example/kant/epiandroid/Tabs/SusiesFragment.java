@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.kant.epiandroid.BaseActivity;
 import com.example.kant.epiandroid.EpitechAPI.EpitechAPI;
 import com.example.kant.epiandroid.EpitechAPI.Susie;
 import com.example.kant.epiandroid.MySharedPreferences;
@@ -92,7 +93,7 @@ public class SusiesFragment extends Fragment implements SusiesAdapter.ClickListe
 
         mRecyclerView.setAdapter(mSusiesAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mRecyclerView.setOnScrollListener(new RecyclerViewScrollListener(((ActionBarActivity)getActivity()).getSupportActionBar()));
+        mRecyclerView.setOnScrollListener(((BaseActivity)getActivity()).getRecyclerScrollListener());
 
         api.susiesGet(MySharedPreferences.readToPreferences(getActivity(), getString(R.string.token_string), getString(R.string.empty_string)), start, end, type,
                 new Callback<List<Susie>>() {
