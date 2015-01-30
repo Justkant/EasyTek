@@ -3,6 +3,7 @@ package com.example.kant.epiandroid.Tabs;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -17,6 +18,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.kant.epiandroid.BaseActivity;
 import com.example.kant.epiandroid.EpitechAPI.EpitechAPI;
 import com.example.kant.epiandroid.EpitechAPI.Susie;
 import com.example.kant.epiandroid.MySharedPreferences;
@@ -94,6 +96,7 @@ public class SusiesFragment extends Fragment implements SusiesAdapter.ClickListe
 
         mRecyclerView.setAdapter(mSusiesAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mRecyclerView.setOnScrollListener(((BaseActivity)getActivity()).getRecyclerScrollListener());
 
         api.susiesGet(MySharedPreferences.readToPreferences(getActivity(), getString(R.string.token_string), getString(R.string.empty_string)), start, end, type,
                 new Callback<List<Susie>>() {

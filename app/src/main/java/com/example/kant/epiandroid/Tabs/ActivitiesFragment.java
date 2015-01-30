@@ -2,6 +2,7 @@ package com.example.kant.epiandroid.Tabs;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.kant.epiandroid.BaseActivity;
 import com.example.kant.epiandroid.EpitechAPI.EpitechAPI;
 import com.example.kant.epiandroid.EpitechAPI.Project;
 import com.example.kant.epiandroid.MySharedPreferences;
@@ -50,6 +52,7 @@ public class ActivitiesFragment extends Fragment implements ActivitiesAdapter.Cl
 
         mRecyclerView.setAdapter(mActivitiesAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mRecyclerView.setOnScrollListener(((BaseActivity)getActivity()).getRecyclerScrollListener());
 
         api.projectsGet(MySharedPreferences.readToPreferences(getActivity(), getString(R.string.token_string), getString(R.string.empty_string)),
                 new Callback<List<Project>>() {

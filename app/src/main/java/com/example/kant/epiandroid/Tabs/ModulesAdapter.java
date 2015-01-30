@@ -5,7 +5,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.example.kant.epiandroid.EpitechAPI.Modules;
 import com.example.kant.epiandroid.R;
 
 /**
@@ -14,11 +16,11 @@ import com.example.kant.epiandroid.R;
  */
 public class ModulesAdapter extends RecyclerView.Adapter<ModulesAdapter.MyViewHolder> {
 
-    private final Object data;
+    private Modules data;
     private LayoutInflater inflater;
     private ClickListener clickListener;
 
-    public ModulesAdapter(Context context, Object data) {
+    public ModulesAdapter(Context context, Modules data) {
         inflater = LayoutInflater.from(context);
         this.data = data;
     }
@@ -31,12 +33,12 @@ public class ModulesAdapter extends RecyclerView.Adapter<ModulesAdapter.MyViewHo
 
     @Override
     public void onBindViewHolder(MyViewHolder myViewHolder, int i) {
-
+        myViewHolder.moduleTitle.setText(data.modules.get(i).title + " Grade : " + data.modules.get(i).grade);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return data.modules.size();
     }
 
     public void setClickListener(ClickListener clickListener) {
@@ -48,9 +50,13 @@ public class ModulesAdapter extends RecyclerView.Adapter<ModulesAdapter.MyViewHo
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+        TextView moduleTitle;
+
         public MyViewHolder(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
+            moduleTitle = (TextView) itemView.findViewById(R.id.module_title);
         }
 
         @Override

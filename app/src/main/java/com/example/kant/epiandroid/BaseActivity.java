@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import com.example.kant.epiandroid.Drawer.DrawerAdapter;
 import com.example.kant.epiandroid.Drawer.DrawerRawInfo;
+import com.example.kant.epiandroid.Tabs.RecyclerViewScrollListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +44,7 @@ public class BaseActivity extends ActionBarActivity implements DrawerAdapter.Cli
     private Handler mHandler;
     private LruCache<String, Bitmap> mMemoryCache;
     private ImageView profileImage;
+    private RecyclerViewScrollListener recyclerScrollListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -162,6 +164,12 @@ public class BaseActivity extends ActionBarActivity implements DrawerAdapter.Cli
         }
     }
 
+    public RecyclerViewScrollListener getRecyclerScrollListener() {
+        if (recyclerScrollListener == null)
+            recyclerScrollListener = new RecyclerViewScrollListener(getSupportActionBar());
+        return recyclerScrollListener;
+    }
+
     @Override
     public void setContentView(int layoutResID) {
         super.setContentView(layoutResID);
@@ -214,20 +222,20 @@ public class BaseActivity extends ActionBarActivity implements DrawerAdapter.Cli
             case HOME_ID:
                 intent = new Intent(this, HomeActivity.class);
                 startActivity(intent);
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                //overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 finish();
                 break;
             case BOARD_ID:
                 intent = new Intent(this, BoardActivity.class);
                 intent.putExtra("tabId", tabId);
                 startActivity(intent);
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                //overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 finish();
                 break;
             case PLANNING_ID:
                 intent = new Intent(this, PlanningActivity.class);
                 startActivity(intent);
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                //overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 finish();
                 break;
             case SETTINGS_ID:
