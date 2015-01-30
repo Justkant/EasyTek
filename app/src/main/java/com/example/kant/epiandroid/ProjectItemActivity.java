@@ -55,6 +55,8 @@ public class ProjectItemActivity extends BaseActivity {
                             ((TextView) findViewById(R.id.registration_limit)).setText("Registration deadline: " + projects.end_register);
                         if (projects.nb_min != 0 && projects.nb_max != 0)
                             ((TextView) findViewById(R.id.group_size)).setText("Size group: " + projects.nb_min + " to " + projects.nb_max);
+                        if (projects.instance_location != null)
+                            ((TextView) findViewById(R.id.location)).setText("Location: " + projects.instance_location);
                     }
 
                     @Override

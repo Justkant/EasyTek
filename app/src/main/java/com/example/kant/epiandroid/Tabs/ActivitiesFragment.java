@@ -1,5 +1,6 @@
 package com.example.kant.epiandroid.Tabs;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
@@ -15,6 +16,7 @@ import com.example.kant.epiandroid.EpitechAPI.EpitechAPI;
 import com.example.kant.epiandroid.EpitechAPI.Project;
 import com.example.kant.epiandroid.EpitechAPI.Projects;
 import com.example.kant.epiandroid.MySharedPreferences;
+import com.example.kant.epiandroid.ProjectItemActivity;
 import com.example.kant.epiandroid.R;
 
 import java.util.ArrayList;
@@ -85,6 +87,8 @@ public class ActivitiesFragment extends Fragment implements ActivitiesAdapter.Cl
 
     @Override
     public void itemClicked(int position) {
-
+        Intent intent = new Intent(getActivity(), ProjectItemActivity.class);
+        intent.putExtra("item", adapterData.get(position));
+        startActivity(intent);
     }
 }

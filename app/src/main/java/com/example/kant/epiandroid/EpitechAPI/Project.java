@@ -21,7 +21,7 @@ public class Project implements Serializable {
     public String num_event;
     public Object info_creneau;
     public String type_acti_code;
-    public String code_location;
+    public String instance_location;
     public String type_acti;
     public String begin;
     public String end;
