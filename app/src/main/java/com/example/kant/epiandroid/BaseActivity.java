@@ -15,6 +15,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.LruCache;
 import android.view.Gravity;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -41,6 +42,7 @@ public class BaseActivity extends ActionBarActivity implements DrawerAdapter.Cli
     private Toolbar toolbar;
     private Handler mHandler;
     private LruCache<String, Bitmap> mMemoryCache;
+    private ImageView profileImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,9 +71,11 @@ public class BaseActivity extends ActionBarActivity implements DrawerAdapter.Cli
             }
         });
 
+        profileImage = (ImageView) findViewById(R.id.profile_image);
         updateUserInfos();
+        setImageProfileClickListener(MySharedPreferences.readToPreferences(this, "userLogin", ""));
         if (mMemoryCache.get("userPicture") != null)
-            ((ImageView) findViewById(R.id.profile_image)).setImageBitmap(mMemoryCache.get("userPicture"));
+            profileImage.setImageBitmap(mMemoryCache.get("userPicture"));
 
         RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.drawer_recycler);
 
@@ -81,6 +85,24 @@ public class BaseActivity extends ActionBarActivity implements DrawerAdapter.Cli
 
         mRecyclerView.setAdapter(mDrawerAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    protected void setImageProfileClickListener(final String login) {
+        if (login.length() == 0)
+            return;
+        profileImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startProfileActivity(login);
+            }
+        });
+
+    }
+
+    private void startProfileActivity(String login) {
+        Intent intent = new Intent(this, ProfileActivity.class);
+        intent.putExtra("profileLogin", login);
+        startActivity(intent);
     }
 
     protected void updateUserPhoto() {

@@ -106,6 +106,7 @@ public class HomeActivity extends BaseActivity {
                     }
                 }
             });
+            setImageProfileClickListener(mHomeInfos.infos.login);
         }
     }
 

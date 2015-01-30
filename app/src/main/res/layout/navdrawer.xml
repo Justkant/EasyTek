@@ -21,14 +21,17 @@
         <ImageView
             android:layout_marginTop="@dimen/drawer_margin_top"
             android:layout_width="wrap_content"
-            android:layout_height="90dp"
+            android:layout_height="100dp"
+            android:background="?android:selectableItemBackground"
+            android:clickable="true"
             android:id="@+id/profile_image"
             android:src="@drawable/profile"
             android:scaleType="fitStart"
             android:adjustViewBounds="true"
             android:contentDescription="@string/drawer_profile_image_desc"
             android:paddingLeft="16dp"
-            android:paddingTop="16dp" />
+            android:paddingTop="16dp"
+            android:padding="16dp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -38,7 +41,7 @@
             android:singleLine="false"
             android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
             android:paddingLeft="16dp"
-            android:paddingTop="20dp" />
+            android:paddingTop="4dp" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

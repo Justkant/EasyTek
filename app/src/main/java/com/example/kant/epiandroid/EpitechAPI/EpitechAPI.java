@@ -193,7 +193,7 @@ public interface EpitechAPI {
 
     @GET(Constants.USER_URL)
     public void userGet(@Query(Constants.TOKEN) String token,
-                        @Query(Constants.LOGIN) String login,
+                        @Query(Constants.USER) String login,
                         Callback<Infos> callback);
 
 }

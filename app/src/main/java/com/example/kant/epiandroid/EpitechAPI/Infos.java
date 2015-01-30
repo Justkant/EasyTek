@@ -11,7 +11,7 @@ public class Infos {
     public String internal_email;
     public String lastname;
     public String firstname;
-    public String userinfo;
+    public Object userinfo;
     public boolean referent_used;
     public String picture;
     public String picture_fun;

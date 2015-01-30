@@ -42,4 +42,5 @@ public class Constants {
     public static final String TOKENVALIDATIONCODE = "tokenvalidationcode";
     public static final String PROMO = "promo";
     public static final String OFFSET = "offset";
+    public static final String USER = "user";
 }

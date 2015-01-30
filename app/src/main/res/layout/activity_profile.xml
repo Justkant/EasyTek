@@ -5,13 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.kant.epiandroid.NotifsAdapter">
+    tools:context="com.example.kant.epiandroid.ProfileActivity">
 
     <include layout="@layout/app_bar" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/notif_recycler"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/Grades"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"/>
+
+    </RelativeLayout>
 
 </LinearLayout>
