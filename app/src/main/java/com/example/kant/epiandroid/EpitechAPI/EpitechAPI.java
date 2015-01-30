@@ -61,7 +61,7 @@ public interface EpitechAPI {
 
     @GET(Constants.PROJECTS_URL)
     public void projectsGet(@Query(Constants.TOKEN) String token,
-                            Callback<List<Project>> callback);
+                            Callback<List<Projects>> callback);
 
     @GET(Constants.PROJECT_URL)
     public void projectGet(@Query(Constants.TOKEN) String token,

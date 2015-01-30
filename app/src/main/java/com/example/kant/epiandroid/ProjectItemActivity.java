@@ -2,32 +2,68 @@ package com.example.kant.epiandroid;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.kant.epiandroid.EpitechAPI.EpitechAPI;
 import com.example.kant.epiandroid.EpitechAPI.Project;
+import com.example.kant.epiandroid.EpitechAPI.Projects;
+import com.example.kant.epiandroid.EpitechAPI.Susie;
+
+import retrofit.Callback;
+import retrofit.RestAdapter;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 /**
  * Created by jaccar_a on 29/01/15.
  */
 public class ProjectItemActivity extends BaseActivity {
 
-    private Project project = null;
+    private static final String TAG = "ProjectItemActivity";
+
+    private Projects project = null;
+    private EpitechAPI api;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_project_item);
+        RestAdapter restAdapter = new RestAdapter.Builder()
+                .setEndpoint(getString(R.string.base_url))
+                .build();
+
+        api = restAdapter.create(EpitechAPI.class);
 
         Toolbar toolbar = getActionBarToolbar();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        project = (Project) getIntent().getSerializableExtra("item");
-
-        ((TextView) findViewById(R.id.codemodule)).setText(project.codemodule);
+        project = (Projects) getIntent().getSerializableExtra("item");
         ((TextView) findViewById(R.id.title_module)).setText(project.title_module);
-        ((TextView) findViewById(R.id.project)).setText(project.project);
         ((TextView) findViewById(R.id.acti_title)).setText(project.acti_title);
+
+
+        api.projectGet(MySharedPreferences.readToPreferences(this, getString(R.string.token_string), getString(R.string.empty_string)), project.scolaryear, project.codemodule, project.codeinstance, project.codeacti,
+                new Callback<Project>() {
+                    @Override
+                    public void success(Project projects, Response response) {
+                        ((TextView) findViewById(R.id.date)).setText("Begin at " + projects.begin + " and end at " + projects.end);
+                        if (projects.end_register != null)
+                            ((TextView) findViewById(R.id.registration_limit)).setText("Registration deadline: " + projects.end_register);
+                        if (projects.nb_min != 0 && projects.nb_max != 0)
+                            ((TextView) findViewById(R.id.group_size)).setText("Size group: " + projects.nb_min + " to " + projects.nb_max);
+                    }
+
+                    @Override
+                    public void failure(RetrofitError error) {
+                        Log.d(TAG, error.getMessage());
+                    }
+                });
+
+
 
 
         if (project != null)

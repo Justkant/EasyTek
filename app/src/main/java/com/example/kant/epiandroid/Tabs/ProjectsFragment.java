@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import com.example.kant.epiandroid.BaseActivity;
 import com.example.kant.epiandroid.EpitechAPI.EpitechAPI;
 import com.example.kant.epiandroid.EpitechAPI.Project;
+import com.example.kant.epiandroid.EpitechAPI.Projects;
 import com.example.kant.epiandroid.MySharedPreferences;
 import com.example.kant.epiandroid.ProjectItemActivity;
 import com.example.kant.epiandroid.R;
@@ -33,7 +34,7 @@ public class ProjectsFragment extends Fragment implements ProjectsAdapter.ClickL
 
     private static final String TAG = "ProjectsFragment";
 
-    private List<Project> adapterData = new ArrayList<Project>();
+    private List<Projects> adapterData = new ArrayList<Projects>();
     private ProjectsAdapter mProjectsAdapter;
     private EpitechAPI api;
 
@@ -57,9 +58,9 @@ public class ProjectsFragment extends Fragment implements ProjectsAdapter.ClickL
         mRecyclerView.setOnScrollListener(((BaseActivity) getActivity()).getRecyclerScrollListener());
 
         api.projectsGet(MySharedPreferences.readToPreferences(getActivity(), getString(R.string.token_string), getString(R.string.empty_string)),
-                new Callback<List<Project>>() {
+                new Callback<List<Projects>>() {
                     @Override
-                    public void success(List<Project> projects, Response response) {
+                    public void success(List<Projects> projects, Response response) {
                         adapterData.clear();
                         for (int i = 0; i < projects.size(); ++i) {
 
