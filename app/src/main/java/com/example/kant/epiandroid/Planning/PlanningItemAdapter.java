@@ -16,6 +16,7 @@ import java.util.Locale;
 public class PlanningItemAdapter extends RecyclerView.Adapter<PlanningItemAdapter.MyViewHolder> {
 
     private LayoutInflater inflater;
+    private ClickListener clickListener;
     private List<PlanningItemData> data;
 
     public PlanningItemAdapter(Context context, List<PlanningItemData> data) {
@@ -52,11 +53,27 @@ public class PlanningItemAdapter extends RecyclerView.Adapter<PlanningItemAdapte
     }
 
     @Override
+    public int getItemViewType(int position) {
+        int viewType = 0;
+        // add here your booleans or switch() to set viewType at your needed
+        // I.E if (position == 0) viewType = 1; etc. etc.
+        return viewType;
+    }
+
+    @Override
     public int getItemCount() {
         return data.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public void setClickListener(ClickListener clickListener) {
+        this.clickListener = clickListener;
+    }
+
+    public interface ClickListener {
+        public void itemClicked(int position);
+    }
+
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView title;
         TextView time;
@@ -67,11 +84,20 @@ public class PlanningItemAdapter extends RecyclerView.Adapter<PlanningItemAdapte
 
         public MyViewHolder(View itemView) {
             super(itemView);
+            itemView.setOnClickListener(this);
             title = (TextView) itemView.findViewById(R.id.tvPlanTitle);
             time = (TextView) itemView.findViewById(R.id.tvPlanTime);
             description = (TextView) itemView.findViewById(R.id.tvPlanDescription);
             dateNb = (TextView) itemView.findViewById(R.id.tvPlanDateNb);
             dateDay = (TextView) itemView.findViewById(R.id.tvPlanDateDay);
+        }
+
+
+        @Override
+        public void onClick(View v) {
+            if (clickListener != null) {
+                clickListener.itemClicked(getPosition());
+            }
         }
     }
 }

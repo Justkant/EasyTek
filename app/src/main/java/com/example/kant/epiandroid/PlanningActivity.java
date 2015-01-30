@@ -5,13 +5,14 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.example.kant.epiandroid.Drawer.DrawerAdapter;
 import com.example.kant.epiandroid.Planning.PlanningItemAdapter;
 import com.example.kant.epiandroid.Planning.PlanningItemData;
 
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
-public class PlanningActivity extends BaseActivity {
+public class PlanningActivity extends BaseActivity implements PlanningItemAdapter.ClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,11 @@ public class PlanningActivity extends BaseActivity {
 
         PlanningItemAdapter adapter = new PlanningItemAdapter(this, data);
         recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void itemClicked(int position) {
+        super.itemClicked(position);
     }
 
     @Override
