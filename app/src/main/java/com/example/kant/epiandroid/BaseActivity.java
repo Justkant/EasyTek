@@ -214,20 +214,20 @@ public class BaseActivity extends ActionBarActivity implements DrawerAdapter.Cli
             case HOME_ID:
                 intent = new Intent(this, HomeActivity.class);
                 startActivity(intent);
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                //overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 finish();
                 break;
             case BOARD_ID:
                 intent = new Intent(this, BoardActivity.class);
                 intent.putExtra("tabId", tabId);
                 startActivity(intent);
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                //overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 finish();
                 break;
             case PLANNING_ID:
                 intent = new Intent(this, PlanningActivity.class);
                 startActivity(intent);
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                //overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 finish();
                 break;
             case SETTINGS_ID:

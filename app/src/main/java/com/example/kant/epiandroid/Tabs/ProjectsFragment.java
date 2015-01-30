@@ -3,6 +3,7 @@ package com.example.kant.epiandroid.Tabs;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -53,6 +54,7 @@ public class ProjectsFragment extends Fragment implements ProjectsAdapter.ClickL
 
         mRecyclerView.setAdapter(mProjectsAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mRecyclerView.setOnScrollListener(new RecyclerViewScrollListener(((ActionBarActivity)getActivity()).getSupportActionBar()));
 
         api.projectsGet(MySharedPreferences.readToPreferences(getActivity(), getString(R.string.token_string), getString(R.string.empty_string)),
                 new Callback<List<Project>>() {
