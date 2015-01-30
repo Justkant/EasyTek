@@ -7,9 +7,6 @@ import android.widget.TextView;
 
 import com.example.kant.epiandroid.EpitechAPI.Project;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by jaccar_a on 29/01/15.
  */

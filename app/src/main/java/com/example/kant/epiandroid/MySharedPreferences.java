@@ -19,4 +19,9 @@ public class MySharedPreferences {
         SharedPreferences sharedPref = context.getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE);
         return sharedPref.getString(preferenceName, defaultValue);
     }
+
+    public static void clearPreferences(Context context) {
+        SharedPreferences sharedPref = context.getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE);
+        sharedPref.edit().clear().apply();
+    }
 }

@@ -20,15 +20,14 @@ public class PlanningActivity extends BaseActivity {
         getActionBarToolbar().setTitle(R.string.title_activity_planning);
         setSupportActionBar(getActionBarToolbar());
 
-        RecyclerView recyclerView = (RecyclerView)findViewById(R.id.cal_item_recycler_view);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.cal_item_recycler_view);
         recyclerView.setHasFixedSize(true);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
         ArrayList<PlanningItemData> data = new ArrayList<PlanningItemData>();
-        for (int i = 0; i < 10; i++)
-        {
+        for (int i = 0; i < 10; i++) {
             PlanningItemData newData = new PlanningItemData();
             newData.title = "Title" + i;
             newData.dateStart = new GregorianCalendar(2015, 01, 29, 8 + i, 0);

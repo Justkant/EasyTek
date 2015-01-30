@@ -27,7 +27,7 @@
     <string name="token_string">token</string>
     <string name="empty_string"></string>
     <string name="drawer_profile_image_desc">Profile Image</string>
-    <string name="login_textview">login</string>
+    <string name="login_textview">Log time : 0h\nlogin</string>
     <string name="username_textview">Firstname Lastname</string>
     <string name="title_activity_board">Board</string>
     <string name="title_activity_planning">Planning</string>

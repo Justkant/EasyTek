@@ -3,6 +3,7 @@ package com.example.kant.epiandroid;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.DrawerLayout;
@@ -12,7 +13,11 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.util.LruCache;
 import android.view.Gravity;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.kant.epiandroid.Drawer.DrawerAdapter;
 import com.example.kant.epiandroid.Drawer.DrawerRawInfo;
@@ -36,6 +41,7 @@ public class BaseActivity extends ActionBarActivity implements DrawerAdapter.Cli
     private ActionBarDrawerToggle mActionBarDrawerToggle;
     private Toolbar toolbar;
     private Handler mHandler;
+    private LruCache<String, Bitmap> mMemoryCache;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +51,7 @@ public class BaseActivity extends ActionBarActivity implements DrawerAdapter.Cli
         if (ab != null) {
             ab.setDisplayHomeAsUpEnabled(true);
         }
+        mMemoryCache = ((MyApplication) getApplication()).mMemoryCache;
     }
 
     protected void setupDrawer() {
@@ -63,6 +70,8 @@ public class BaseActivity extends ActionBarActivity implements DrawerAdapter.Cli
             }
         });
 
+        updateUserInfos();
+
         RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.drawer_recycler);
 
         DrawerAdapter mDrawerAdapter = new DrawerAdapter(this,
@@ -73,7 +82,26 @@ public class BaseActivity extends ActionBarActivity implements DrawerAdapter.Cli
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
-    public static List<DrawerRawInfo> getDrawerData(Context context) {
+    protected void updateUserPhoto() {
+        if (mMemoryCache.get("userPicture") == null && MySharedPreferences.readToPreferences(this, "userPhoto", "").length() > 0) {
+            new MyImageLoader(mMemoryCache, (ImageView) findViewById(R.id.profile_image))
+                    .execute(MySharedPreferences.readToPreferences(this, "userPhoto", ""));
+        }
+    }
+
+    protected void updateUserInfos() {
+        if (MySharedPreferences.readToPreferences(this, "hasUserInfos", "").equals("y")) {
+            TextView usernametext = (TextView) findViewById(R.id.usernameText);
+            usernametext.setText(MySharedPreferences.readToPreferences(this, "userName",
+                    getString(R.string.username_textview)));
+
+            TextView logintext = (TextView) findViewById(R.id.loginText);
+            logintext.setText(MySharedPreferences.readToPreferences(this, "userLogtime", "Log time : 0h") + "\n" +
+                    MySharedPreferences.readToPreferences(this, "userLogin", "login"));
+        }
+    }
+
+    private static List<DrawerRawInfo> getDrawerData(Context context) {
         List<DrawerRawInfo> data = new ArrayList<>();
 
         int[] icons = {

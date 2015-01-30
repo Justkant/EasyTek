@@ -9,10 +9,7 @@ import android.widget.TextView;
 
 import com.example.kant.epiandroid.R;
 
-import org.w3c.dom.Text;
-
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
@@ -43,15 +40,12 @@ public class PlanningItemAdapter extends RecyclerView.Adapter<PlanningItemAdapte
 
         viewHolder.time.setText(sdf.format(bindData.dateStart.getTime()) + " - " + sdf.format(bindData.dateEnd.getTime()));
 
-        if (bindData.isFirstOfTheDay)
-        {
+        if (bindData.isFirstOfTheDay) {
             viewHolder.dateNb.setVisibility(View.VISIBLE);
             viewHolder.dateDay.setVisibility(View.VISIBLE);
             viewHolder.dateNb.setText(new SimpleDateFormat("dd", Locale.US).format(bindData.dateStart.getTime()));
             viewHolder.dateDay.setText(new SimpleDateFormat("EEE", Locale.US).format(bindData.dateStart.getTime()));
-        }
-        else
-        {
+        } else {
             viewHolder.dateNb.setVisibility(View.GONE);
             viewHolder.dateDay.setVisibility(View.GONE);
         }
