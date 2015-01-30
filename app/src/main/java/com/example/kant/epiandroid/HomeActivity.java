@@ -24,14 +24,11 @@ public class HomeActivity extends BaseActivity {
     private static final String TAG = "Home Activity";
     private HomeInfos mHomeInfos;
     private EpitechAPI api;
-    private LruCache<String, Bitmap> mMemoryCache;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        mMemoryCache = ((MyApplication)getApplication()).mMemoryCache;
 
         RestAdapter restAdapter = new RestAdapter.Builder()
                 .setEndpoint(getString(R.string.base_url))

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.util.LruCache;
 import android.view.View;
 import android.widget.Button;
@@ -31,16 +32,6 @@ public class LoginActivity extends BaseActivity {
 
     private void resetCache() {
         MySharedPreferences.clearPreferences(this);
-
-        final int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
-        final int cacheSize = maxMemory / 8;
-        LruCache<String, Bitmap> mMemoryCache = new LruCache<String, Bitmap>(cacheSize) {
-            @Override
-            protected int sizeOf(String key, Bitmap bitmap) {
-                return bitmap.getByteCount() / 1024;
-            }
-        };
-
         mMemoryCache.remove("userPicture");
     }
 
@@ -48,8 +39,6 @@ public class LoginActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        resetCache();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -128,6 +117,12 @@ public class LoginActivity extends BaseActivity {
                 });
             }
         });
+    }
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        resetCache();
     }
 
     private void validateLogin(String text) {

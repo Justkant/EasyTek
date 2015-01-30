@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 
 import com.example.kant.epiandroid.BaseActivity;
 import com.example.kant.epiandroid.R;
-import com.example.kant.epiandroid.Tabs.MarksAdapter;
 
 /**
  * Created by Quentin on 30/01/2015.
@@ -29,7 +28,7 @@ public class PlanningFragment extends Fragment implements PlanningAdapter.ClickL
 
         mRecyclerView.setAdapter(mPlanningAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mRecyclerView.setOnScrollListener(((BaseActivity)getActivity()).getRecyclerScrollListener());
+        mRecyclerView.setOnScrollListener(((BaseActivity) getActivity()).getRecyclerScrollListener());
 
         return view;
     }

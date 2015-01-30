@@ -42,7 +42,7 @@ public class BaseActivity extends ActionBarActivity implements DrawerAdapter.Cli
     private ActionBarDrawerToggle mActionBarDrawerToggle;
     private Toolbar toolbar;
     private Handler mHandler;
-    private LruCache<String, Bitmap> mMemoryCache;
+    protected LruCache<String, Bitmap> mMemoryCache;
     private ImageView profileImage;
     private RecyclerViewScrollListener recyclerScrollListener;
 
@@ -78,6 +78,8 @@ public class BaseActivity extends ActionBarActivity implements DrawerAdapter.Cli
         setImageProfileClickListener(MySharedPreferences.readToPreferences(this, "userLogin", ""));
         if (mMemoryCache.get("userPicture") != null)
             profileImage.setImageBitmap(mMemoryCache.get("userPicture"));
+        else
+            profileImage.setImageResource(R.drawable.profile);
 
         RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.drawer_recycler);
 
