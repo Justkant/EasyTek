@@ -1,10 +1,12 @@
 package com.example.kant.epiandroid;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.LruCache;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,10 +29,27 @@ public class LoginActivity extends BaseActivity {
     private RestAdapter restAdapter;
     private EpitechAPI api;
 
+    private void resetCache() {
+        MySharedPreferences.clearPreferences(this);
+
+        final int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
+        final int cacheSize = maxMemory / 8;
+        LruCache<String, Bitmap> mMemoryCache = new LruCache<String, Bitmap>(cacheSize) {
+            @Override
+            protected int sizeOf(String key, Bitmap bitmap) {
+                return bitmap.getByteCount() / 1024;
+            }
+        };
+
+        mMemoryCache.remove("userPicture");
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        resetCache();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

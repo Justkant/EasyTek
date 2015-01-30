@@ -1,16 +1,18 @@
 package com.example.kant.epiandroid;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.example.kant.epiandroid.Drawer.DrawerAdapter;
 import com.example.kant.epiandroid.Planning.PlanningItemAdapter;
 import com.example.kant.epiandroid.Planning.PlanningItemData;
 
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
-public class PlanningActivity extends BaseActivity {
+public class PlanningActivity extends BaseActivity implements PlanningItemAdapter.ClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,15 +22,14 @@ public class PlanningActivity extends BaseActivity {
         getActionBarToolbar().setTitle(R.string.title_activity_planning);
         setSupportActionBar(getActionBarToolbar());
 
-        RecyclerView recyclerView = (RecyclerView)findViewById(R.id.cal_item_recycler_view);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.cal_item_recycler_view);
         recyclerView.setHasFixedSize(true);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
         ArrayList<PlanningItemData> data = new ArrayList<PlanningItemData>();
-        for (int i = 0; i < 10; i++)
-        {
+        for (int i = 0; i < 10; i++) {
             PlanningItemData newData = new PlanningItemData();
             newData.title = "Title" + i;
             newData.dateStart = new GregorianCalendar(2015, 01, 29, 8 + i, 0);
@@ -45,7 +46,22 @@ public class PlanningActivity extends BaseActivity {
     }
 
     @Override
+    public void itemClicked(int position) {
+        super.itemClicked(position);
+    }
+
+    @Override
     protected int getSelfNavDrawerItem() {
         return PLANNING_ID;
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (MySharedPreferences.readToPreferences(this, getString(R.string.token_string), getString(R.string.empty_string)).length() == 0) {
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
+        }
     }
 }

@@ -1,5 +1,6 @@
 package com.example.kant.epiandroid;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
@@ -39,4 +40,16 @@ public class BoardActivity extends BaseActivity {
         return BOARD_ID;
     }
 
+<<<<<<< HEAD
+=======
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (MySharedPreferences.readToPreferences(this, getString(R.string.token_string), getString(R.string.empty_string)).length() == 0) {
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
+        }
+    }
+>>>>>>> 59ffe1d8669f1a7459c604ad1ea891e2da9bbb92
 }

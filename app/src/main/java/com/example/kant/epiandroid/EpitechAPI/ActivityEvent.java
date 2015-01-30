@@ -8,7 +8,7 @@ import java.util.List;
  * EpiAndroid Project.
  */
 public class ActivityEvent {
-    
+
     public String code;
     public String num_event;
     public String seats;

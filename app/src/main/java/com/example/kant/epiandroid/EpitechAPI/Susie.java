@@ -6,7 +6,7 @@ package com.example.kant.epiandroid.EpitechAPI;
  */
 
 public class Susie {
-    
+
     public String color;
     public int id_maker;
     public int weeks_left;
