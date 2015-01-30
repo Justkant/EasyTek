@@ -40,9 +40,6 @@ public class BoardActivity extends BaseActivity {
         return BOARD_ID;
     }
 
-<<<<<<< HEAD
-=======
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -51,5 +48,4 @@ public class BoardActivity extends BaseActivity {
             finish();
         }
     }
->>>>>>> 59ffe1d8669f1a7459c604ad1ea891e2da9bbb92
 }
