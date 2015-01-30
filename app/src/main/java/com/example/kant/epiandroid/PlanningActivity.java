@@ -1,5 +1,6 @@
 package com.example.kant.epiandroid;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -46,5 +47,15 @@ public class PlanningActivity extends BaseActivity {
     @Override
     protected int getSelfNavDrawerItem() {
         return PLANNING_ID;
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (MySharedPreferences.readToPreferences(this, getString(R.string.token_string), getString(R.string.empty_string)).length() == 0) {
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
+        }
     }
 }
