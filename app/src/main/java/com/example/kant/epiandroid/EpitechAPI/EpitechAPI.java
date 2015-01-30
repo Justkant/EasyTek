@@ -160,7 +160,7 @@ public interface EpitechAPI {
 
     @GET(Constants.MESSAGES_URL)
     public void messagesGet(@Query(Constants.TOKEN) String token,
-                            Callback<Messages> callback);
+                            Callback<List<Message>> callback);
 
 
     @GET(Constants.ALERTS_URL)

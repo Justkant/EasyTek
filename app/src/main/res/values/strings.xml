@@ -44,5 +44,10 @@
     <string name="right"><![CDATA[>]]></string>
     <string name="date_proto">YYYY/MM/JJ</string>
     <string name="to">to</string>
+    <string name="menu_notification">Notifications</string>
+    <string name="susie_all">all</string>
+    <string name="susie_free">free</string>
+    <string name="susie_registered">registered</string>
+    <string name="title_activity_notif">Notifications</string>
 
 </resources>

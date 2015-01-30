@@ -43,6 +43,16 @@ public class SusiesFragment extends Fragment implements SusiesAdapter.ClickListe
     private EpitechAPI api;
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        RestAdapter restAdapter = new RestAdapter.Builder()
+                .setEndpoint(getString(R.string.base_url))
+                .build();
+
+        api = restAdapter.create(EpitechAPI.class);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_board, container, false);
         setHasOptionsMenu(true);
@@ -74,13 +84,6 @@ public class SusiesFragment extends Fragment implements SusiesAdapter.ClickListe
     }
 
     public void sendRequest(View v, String start, String end, String type) {
-        RestAdapter restAdapter = new RestAdapter.Builder()
-                .setEndpoint(getString(R.string.base_url))
-                .build();
-
-        api = restAdapter.create(EpitechAPI.class);
-
-
         RecyclerView mRecyclerView = (RecyclerView) v.findViewById(R.id.board_recycler);
 
         mSusiesAdapter = new SusiesAdapter(getActivity(), adapterData);

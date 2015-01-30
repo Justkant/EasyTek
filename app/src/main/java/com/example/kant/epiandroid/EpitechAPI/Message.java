@@ -5,7 +5,7 @@ package com.example.kant.epiandroid.EpitechAPI;
  * EpiAndroid Project.
  */
 
-public class Messages {
+public class Message {
     public String title;
     public User user;
     public String content;
