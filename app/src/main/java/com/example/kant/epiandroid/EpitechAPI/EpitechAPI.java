@@ -41,19 +41,22 @@ public interface EpitechAPI {
 
     @GET(Constants.SUSIE_URL)
     public void susieGet(@Query(Constants.TOKEN) String token,
-                         @Query(Constants.ID) String id,
+                         @Query(Constants.ID) int id,
+                         @Query(Constants.CALENDAR_ID) int id_calendar,
                          Callback<Susie> callback);
 
     @FormUrlEncoded()
     @POST(Constants.SUSIE_URL)
     public void susieSub(@Field(Constants.TOKEN) String token,
-                         @Field(Constants.ID) String id,
+                         @Field(Constants.ID) int id,
+                         @Query(Constants.CALENDAR_ID) int id_calendar,
                          Callback<String> callback);
 
     @FormUrlEncoded()
     @DELETE(Constants.SUSIE_URL)
     public void susieUnsub(@Field(Constants.TOKEN) String token,
-                           @Field(Constants.ID) String id,
+                           @Field(Constants.ID) int id,
+                           @Query(Constants.CALENDAR_ID) int id_calendar,
                            Callback<String> callback);
 
     @GET(Constants.PROJECTS_URL)

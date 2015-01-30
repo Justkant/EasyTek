@@ -8,7 +8,7 @@ public class Constants {
     public static final String INFOS_URL = "/infos";
     public static final String PLANNING_URL = "/planning";
     public static final String SUSIES_URL = "/susies";
-    public static final String SUSIE_URL = "/susies";
+    public static final String SUSIE_URL = "/susie";
     public static final String PROJECTS_URL = "/projects";
     public static final String PROJECT_URL = "/project";
     public static final String PROJECT_FILES_URL = "/project/files";
@@ -30,6 +30,7 @@ public class Constants {
     public static final String START = "start";
     public static final String END = "end";
     public static final String ID = "id";
+    public static final String CALENDAR_ID = "calendar_id";
     public static final String GET = "get";
     public static final String YEAR = "year";
     public static final String SCOLARYEAR = "scolaryear";

@@ -1,6 +1,8 @@
 package com.example.kant.epiandroid.EpitechAPI;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
 
     public String picture;
     public String title;

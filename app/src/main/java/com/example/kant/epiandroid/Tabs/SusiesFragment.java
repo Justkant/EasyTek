@@ -1,5 +1,6 @@
 package com.example.kant.epiandroid.Tabs;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -20,6 +21,7 @@ import com.example.kant.epiandroid.EpitechAPI.EpitechAPI;
 import com.example.kant.epiandroid.EpitechAPI.Susie;
 import com.example.kant.epiandroid.MySharedPreferences;
 import com.example.kant.epiandroid.R;
+import com.example.kant.epiandroid.SusieItemActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,7 +59,6 @@ public class SusiesFragment extends Fragment implements SusiesAdapter.ClickListe
         final View view = inflater.inflate(R.layout.fragment_board, container, false);
         setHasOptionsMenu(true);
 
-        //test affichage text + boutton
         ((LinearLayout) view.findViewById(R.id.susie_visual)).setVisibility(View.VISIBLE);
         ((Button) view.findViewById(R.id.valid)).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,7 +76,9 @@ public class SusiesFragment extends Fragment implements SusiesAdapter.ClickListe
 
     @Override
     public void itemClicked(int position) {
-
+        Intent intent = new Intent(getActivity(), SusieItemActivity.class);
+        intent.putExtra("item", adapterData.get(position));
+        startActivity(intent);
     }
 
     @Override
