@@ -34,7 +34,7 @@ public class NotifsAdapter extends RecyclerView.Adapter<NotifsAdapter.MyViewHold
 
     @Override
     public void onBindViewHolder(MyViewHolder myViewHolder, int i) {
-        myViewHolder.title.setText(messages.get(i).title);
+        myViewHolder.title.setText(android.text.Html.fromHtml(messages.get(i).title).toString());
     }
 
     @Override

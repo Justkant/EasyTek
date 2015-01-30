@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.example.kant.epiandroid.EpitechAPI.EpitechAPI;
 import com.example.kant.epiandroid.EpitechAPI.Message;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit.Callback;
@@ -24,7 +25,7 @@ import retrofit.client.Response;
  */
 public class NotifActivity extends BaseActivity implements NotifsAdapter.ClickListener {
 
-    private List<Message> mMessages;
+    private List<Message> mMessages = new ArrayList<Message>();
     private NotifsAdapter mNotifsAdapter;
 
     @Override

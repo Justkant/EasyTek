@@ -135,16 +135,11 @@ public class HomeActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.notif_icon:
-                showNotifications();
+                startActivity(new Intent(this, NotifActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    private void showNotifications() {
-        startActivity(new Intent(this, NotifActivity.class));
-        finish();
     }
 
     @Override
