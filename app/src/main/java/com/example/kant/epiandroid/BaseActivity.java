@@ -70,6 +70,8 @@ public class BaseActivity extends ActionBarActivity implements DrawerAdapter.Cli
         });
 
         updateUserInfos();
+        if (mMemoryCache.get("userPicture") != null)
+            ((ImageView) findViewById(R.id.profile_image)).setImageBitmap(mMemoryCache.get("userPicture"));
 
         RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.drawer_recycler);
 

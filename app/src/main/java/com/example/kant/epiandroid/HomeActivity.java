@@ -31,6 +31,7 @@ public class HomeActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        mMemoryCache = ((MyApplication)getApplication()).mMemoryCache;
 
         RestAdapter restAdapter = new RestAdapter.Builder()
                 .setEndpoint(getString(R.string.base_url))
@@ -90,20 +91,22 @@ public class HomeActivity extends BaseActivity {
     }
 
     private void getPhoto() {
-        api.photoGet(MySharedPreferences.readToPreferences(this, getString(R.string.token_string), ""), mHomeInfos.infos.login, new Callback<Photo>() {
-            @Override
-            public void success(Photo photo, Response response) {
-                MySharedPreferences.saveToPreferences(getBaseContext(), "userPhoto", photo.url);
-                updateUserPhoto();
-            }
-
-            @Override
-            public void failure(RetrofitError error) {
-                if (error.getMessage().equals("403 FORBIDDEN")) {
-                    backToLogin();
+        if (mMemoryCache.get("userPicture") == null) {
+            api.photoGet(MySharedPreferences.readToPreferences(this, getString(R.string.token_string), ""), mHomeInfos.infos.login, new Callback<Photo>() {
+                @Override
+                public void success(Photo photo, Response response) {
+                    MySharedPreferences.saveToPreferences(getBaseContext(), "userPhoto", photo.url);
+                    updateUserPhoto();
                 }
-            }
-        });
+
+                @Override
+                public void failure(RetrofitError error) {
+                    if (error.getMessage().equals("403 FORBIDDEN")) {
+                        backToLogin();
+                    }
+                }
+            });
+        }
     }
 
     private void backToLogin() {

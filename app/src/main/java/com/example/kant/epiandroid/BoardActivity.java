@@ -36,7 +36,7 @@ public class BoardActivity extends BaseActivity {
             public void run() {
                 mPager.setCurrentItem(tabId, true);
             }
-        }, 100);
+        }, 200);
     }
 
     @Override
