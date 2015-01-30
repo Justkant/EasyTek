@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 
 import com.example.kant.epiandroid.Tabs.SlidingTabLayout;
-import com.example.kant.epiandroid.Tabs.SlidingTabPagerAdapter;
+import com.example.kant.epiandroid.Planning.SlidingTabPagerAdapter;
 
 public class PlanningActivity extends BaseActivity {
 

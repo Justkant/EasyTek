@@ -14,6 +14,15 @@
         <item>Susies</item>
         <item>Marks</item>
     </string-array>
+    <string-array name="planning_week">
+        <item>Monday</item>
+        <item>Thursday</item>
+        <item>Wednesday</item>
+        <item>Tuesday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+        <item>Sunday</item>
+    </string-array>
 
     <string name="app_name">EpiAndroid</string>
     <string name="title_activity_main">Home</string>
