@@ -5,8 +5,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.example.kant.epiandroid.EpitechAPI.Planning;
 import com.example.kant.epiandroid.R;
+
+import java.util.List;
 
 /**
  * Created by Quentin on 30/01/2015.
@@ -14,13 +18,13 @@ import com.example.kant.epiandroid.R;
  */
 public class PlanningAdapter extends RecyclerView.Adapter<PlanningAdapter.MyViewHolder> {
 
-    private final Object data;
     private LayoutInflater inflater;
     private ClickListener clickListener;
+    private List<Planning> plannings;
 
-    public PlanningAdapter(Context context, Object data) {
+    public PlanningAdapter(Context context, List<Planning> plannings) {
         inflater = LayoutInflater.from(context);
-        this.data = data;
+        this.plannings = plannings;
     }
 
     @Override
@@ -31,12 +35,13 @@ public class PlanningAdapter extends RecyclerView.Adapter<PlanningAdapter.MyView
 
     @Override
     public void onBindViewHolder(MyViewHolder myViewHolder, int i) {
+        myViewHolder.planningTitle.setText(plannings.get(i).acti_title + " " + plannings.get(i).start);
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return plannings.size();
     }
 
     public void setClickListener(ClickListener clickListener) {
@@ -48,9 +53,13 @@ public class PlanningAdapter extends RecyclerView.Adapter<PlanningAdapter.MyView
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+        TextView planningTitle;
+
         public MyViewHolder(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
+            planningTitle = (TextView) itemView.findViewById(R.id.planning_title);
         }
 
         @Override

@@ -31,7 +31,7 @@ public interface EpitechAPI {
     public void planningGet(@Query(Constants.TOKEN) String token,
                             @Query(Constants.START) String start,
                             @Query(Constants.END) String end,
-                            Callback<Planning> callback);
+                            Callback<List<Planning>> callback);
 
     @GET(Constants.SUSIES_URL)
     public void susiesGet(@Query(Constants.TOKEN) String token,
