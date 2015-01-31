@@ -7,6 +7,11 @@
         android:title="@string/planning_left_title"
         app:showAsAction="always" />
     <item
+        android:icon="@drawable/ic_apps_white"
+        android:id="@+id/planning_today"
+        android:title="@string/planning_today_title"
+        app:showAsAction="always"/>
+    <item
         android:icon="@drawable/ic_chevron_right_white"
         android:id="@+id/planning_right"
         android:title="@string/planning_right_title"

@@ -19,6 +19,8 @@ public class PlanningActivity extends BaseActivity {
     private ViewPager mPager;
     private Date today;
     private SlidingTabPagerAdapter slidingTabPagerAdapter;
+    private int todayPos;
+    private SlidingTabLayout mTabs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +31,7 @@ public class PlanningActivity extends BaseActivity {
         setSupportActionBar(getActionBarToolbar());
 
         mPager = (ViewPager) findViewById(R.id.pager);
-        SlidingTabLayout mTabs = (SlidingTabLayout) findViewById(R.id.tabs);
+        mTabs = (SlidingTabLayout) findViewById(R.id.tabs);
         slidingTabPagerAdapter = new SlidingTabPagerAdapter(getSupportFragmentManager(), this);
         mPager.setAdapter(slidingTabPagerAdapter);
         mTabs.setViewPager(mPager);
@@ -37,18 +39,18 @@ public class PlanningActivity extends BaseActivity {
         today = cal.getTime();
         cal.setFirstDayOfWeek(Calendar.MONDAY);
         cal.set(Calendar.DAY_OF_WEEK, cal.getFirstDayOfWeek());
-        int i = 0;
-        while (i < 7) {
+        todayPos = 0;
+        while (todayPos < 7) {
             if (cal.getTime().after(today))
                 break;
-            i++;
+            ++todayPos;
             cal.add(Calendar.DAY_OF_WEEK, 1);
         }
-        final int finalI = i - 1;
+        --todayPos;
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                mPager.setCurrentItem(finalI, true);
+                mPager.setCurrentItem(todayPos, true);
             }
         }, 100);
     }
@@ -70,6 +72,11 @@ public class PlanningActivity extends BaseActivity {
             case R.id.planning_right:
                 mPager.setCurrentItem(0, true);
                 slidingTabPagerAdapter.nextWeek();
+                slidingTabPagerAdapter.notifyDataSetChanged();
+                return true;
+            case R.id.planning_today:
+                mPager.setCurrentItem(todayPos, true);
+                slidingTabPagerAdapter.todayWeek();
                 slidingTabPagerAdapter.notifyDataSetChanged();
                 return true;
             default:

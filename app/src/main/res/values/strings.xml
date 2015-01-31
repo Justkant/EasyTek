@@ -64,5 +64,6 @@
     <string name="pref_logout_summary_string">Delete all cached user data</string>
     <string name="planning_left_title">Previous week</string>
     <string name="planning_right_title">Next week</string>
+    <string name="planning_today_title">Today</string>
 
 </resources>

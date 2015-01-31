@@ -31,12 +31,13 @@ public class PlanningFragment extends Fragment implements PlanningAdapter.ClickL
     private EpitechAPI api;
     private List<Planning> planning = new ArrayList<Planning>();
     private PlanningAdapter mPlanningAdapter;
+    private String planningDate;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_board, container, false);
 
-        String planningDate = getArguments().getString("planningDate");
+        planningDate = getArguments().getString("planningDate");
 
         RecyclerView mRecyclerView = (RecyclerView) view.findViewById(R.id.board_recycler);
 
@@ -73,5 +74,9 @@ public class PlanningFragment extends Fragment implements PlanningAdapter.ClickL
     @Override
     public void itemClicked(int position) {
 
+    }
+
+    public String getDate() {
+        return planningDate;
     }
 }
