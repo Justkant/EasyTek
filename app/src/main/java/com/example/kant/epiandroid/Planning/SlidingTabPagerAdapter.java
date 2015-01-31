@@ -5,13 +5,9 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.util.Log;
-
-import com.example.kant.epiandroid.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
 /**
  * Created by Quentin on 30/01/2015.
@@ -28,13 +24,7 @@ public class SlidingTabPagerAdapter extends FragmentPagerAdapter {
         cal = Calendar.getInstance();
         cal.setFirstDayOfWeek(Calendar.MONDAY);
         cal.set(Calendar.DAY_OF_WEEK, cal.getFirstDayOfWeek());
-        SimpleDateFormat sdf = new SimpleDateFormat("EEEE dd.MM.yyyy");
-        SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy/MM/dd");
-        for (int i = 0; i < 7; i++) {
-            tabs[i] = sdf.format(cal.getTime());
-            dates[i] = sdf2.format(cal.getTime());
-            cal.add(Calendar.DAY_OF_WEEK, 1);
-        }
+        makeCalData();
     }
 
     @Override
@@ -44,6 +34,25 @@ public class SlidingTabPagerAdapter extends FragmentPagerAdapter {
         bundle.putString("planningDate", dates[position]);
         fragment.setArguments(bundle);
         return fragment;
+    }
+
+    private void makeCalData() {
+        SimpleDateFormat sdf = new SimpleDateFormat("EEEE dd.MM.yyyy");
+        SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy/MM/dd");
+        for (int i = 0; i < 7; i++) {
+            tabs[i] = sdf.format(cal.getTime());
+            dates[i] = sdf2.format(cal.getTime());
+            cal.add(Calendar.DAY_OF_WEEK, 1);
+        }
+    }
+
+    public void prevWeek() {
+        cal.add(Calendar.DAY_OF_WEEK, -14);
+        makeCalData();
+    }
+
+    public void nextWeek() {
+        makeCalData();
     }
 
     @Override

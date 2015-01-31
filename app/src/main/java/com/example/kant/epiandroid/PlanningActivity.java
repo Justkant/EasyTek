@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.example.kant.epiandroid.Planning.SlidingTabPagerAdapter;
 import com.example.kant.epiandroid.Tabs.SlidingTabLayout;
@@ -16,6 +18,7 @@ public class PlanningActivity extends BaseActivity {
 
     private ViewPager mPager;
     private Date today;
+    private SlidingTabPagerAdapter slidingTabPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +30,8 @@ public class PlanningActivity extends BaseActivity {
 
         mPager = (ViewPager) findViewById(R.id.pager);
         SlidingTabLayout mTabs = (SlidingTabLayout) findViewById(R.id.tabs);
-
-        mPager.setAdapter(new SlidingTabPagerAdapter(getSupportFragmentManager(), this));
+        slidingTabPagerAdapter = new SlidingTabPagerAdapter(getSupportFragmentManager(), this);
+        mPager.setAdapter(slidingTabPagerAdapter);
         mTabs.setViewPager(mPager);
         Calendar cal = Calendar.getInstance();
         today = cal.getTime();
@@ -48,6 +51,30 @@ public class PlanningActivity extends BaseActivity {
                 mPager.setCurrentItem(finalI, true);
             }
         }, 100);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.planning_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.planning_left:
+                mPager.setCurrentItem(0, true);
+                slidingTabPagerAdapter.prevWeek();
+                slidingTabPagerAdapter.notifyDataSetChanged();
+                return true;
+            case R.id.planning_right:
+                mPager.setCurrentItem(0, true);
+                slidingTabPagerAdapter.nextWeek();
+                slidingTabPagerAdapter.notifyDataSetChanged();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override

@@ -60,5 +60,9 @@
     <string name="title_activity_notif">Notifications</string>
     <string name="title_activity_profile">Profile</string>
     <string name="registration">Register</string>
+    <string name="pref_logout_string">Logout</string>
+    <string name="pref_logout_summary_string">Delete all cached user data</string>
+    <string name="planning_left_title">Previous week</string>
+    <string name="planning_right_title">Next week</string>
 
 </resources>
