@@ -17,6 +17,7 @@ public class SlidingTabPagerAdapter extends FragmentPagerAdapter {
     private final static int PROJECTS_POS = 2;
     private final static int SUSIES_POS = 3;
     private final static int MARKS_POS = 4;
+    private final static int TROMBI_POS = 5;
     private String[] tabs;
 
     public SlidingTabPagerAdapter(FragmentManager fm, Context context) {
@@ -42,6 +43,9 @@ public class SlidingTabPagerAdapter extends FragmentPagerAdapter {
                 break;
             case MARKS_POS:
                 fragment = new MarksFragment();
+                break;
+            case TROMBI_POS:
+                fragment = new TrombiFragment();
                 break;
         }
         return fragment;

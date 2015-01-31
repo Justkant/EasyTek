@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 
 import com.example.kant.epiandroid.BaseActivity;
 import com.example.kant.epiandroid.EpitechAPI.EpitechAPI;
-import com.example.kant.epiandroid.EpitechAPI.Project;
 import com.example.kant.epiandroid.EpitechAPI.Projects;
 import com.example.kant.epiandroid.MySharedPreferences;
 import com.example.kant.epiandroid.ProjectItemActivity;

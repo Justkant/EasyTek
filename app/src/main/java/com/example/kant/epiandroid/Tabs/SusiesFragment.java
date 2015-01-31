@@ -3,7 +3,6 @@ package com.example.kant.epiandroid.Tabs;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -96,7 +95,7 @@ public class SusiesFragment extends Fragment implements SusiesAdapter.ClickListe
 
         mRecyclerView.setAdapter(mSusiesAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mRecyclerView.setOnScrollListener(((BaseActivity)getActivity()).getRecyclerScrollListener());
+        mRecyclerView.setOnScrollListener(((BaseActivity) getActivity()).getRecyclerScrollListener());
 
         api.susiesGet(MySharedPreferences.readToPreferences(getActivity(), getString(R.string.token_string), getString(R.string.empty_string)), start, end, type,
                 new Callback<List<Susie>>() {
@@ -105,7 +104,6 @@ public class SusiesFragment extends Fragment implements SusiesAdapter.ClickListe
                         adapterData.clear();
                         for (int i = 0; i < susies.size(); ++i) {
                             adapterData.add(susies.get(i));
-                            Log.d("title susie ", susies.get(i).title);
                         }
                         mSusiesAdapter.notifyDataSetChanged();
                     }
@@ -116,7 +114,6 @@ public class SusiesFragment extends Fragment implements SusiesAdapter.ClickListe
                     }
                 });
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

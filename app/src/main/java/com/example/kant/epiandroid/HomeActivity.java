@@ -71,7 +71,8 @@ public class HomeActivity extends BaseActivity {
                 R.id.activities_button,
                 R.id.projects_button,
                 R.id.susies_button,
-                R.id.marks_button
+                R.id.marks_button,
+                R.id.trombi_button
         };
 
         for (int i = 0; i < buttonIdTab.length; i++) {

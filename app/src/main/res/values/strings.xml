@@ -13,6 +13,7 @@
         <item>Projects</item>
         <item>Susies</item>
         <item>Marks</item>
+        <item>Trombi</item>
     </string-array>
     <string-array name="planning_week">
         <item>Monday</item>
@@ -65,5 +66,6 @@
     <string name="planning_left_title">Previous week</string>
     <string name="planning_right_title">Next week</string>
     <string name="planning_today_title">Today</string>
+    <string name="home_trombi_button">Trombi</string>
 
 </resources>

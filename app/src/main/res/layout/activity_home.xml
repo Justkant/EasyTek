@@ -68,6 +68,13 @@
                     android:text="@string/home_marks_button"
                     android:id="@+id/marks_button"
                     android:layout_span="2" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/home_trombi_button"
+                    android:id="@+id/trombi_button"
+                    android:layout_column="3" />
             </TableRow>
 
         </TableLayout>
