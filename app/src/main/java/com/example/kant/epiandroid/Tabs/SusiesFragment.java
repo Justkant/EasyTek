@@ -71,7 +71,7 @@ public class SusiesFragment extends Fragment implements SusiesAdapter.ClickListe
         ((TextView) view.findViewById(R.id.test)).setVisibility(View.VISIBLE);
 
 
-        sendRequest(view, "2015/01/28", "2015/01/28", TYPE);
+        sendRequest(view, "2015/02/06", "2015/02/06", TYPE);
 
         return view;
     }

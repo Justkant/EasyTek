@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -15,6 +16,7 @@ import com.example.kant.epiandroid.EpitechAPI.EpitechAPI;
 import com.example.kant.epiandroid.EpitechAPI.Susie;
 
 import java.io.InputStream;
+import java.util.Objects;
 
 import retrofit.Callback;
 import retrofit.RestAdapter;
@@ -27,9 +29,12 @@ import retrofit.client.Response;
 public class SusieItemActivity extends BaseActivity {
 
     private static final String TAG = "SusiesItemActivity";
+    private static final String TAG2 = "SusiesItemActivity2";
 
     private Susie susie = null;
     private EpitechAPI api;
+    private int calendar_id = 0;
+    private int id = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +43,7 @@ public class SusieItemActivity extends BaseActivity {
         RestAdapter restAdapter = new RestAdapter.Builder()
                 .setEndpoint(getString(R.string.base_url))
                 .build();
+        restAdapter.setLogLevel(RestAdapter.LogLevel.FULL);
 
         api = restAdapter.create(EpitechAPI.class);
 
@@ -56,6 +62,8 @@ public class SusieItemActivity extends BaseActivity {
                     @Override
                     public void success(Susie susies, Response response) {
                         //set nb_place
+                        calendar_id = susies.id_calendar;
+                        id = susies.id;
                         ((TextView) findViewById(R.id.place)).setText("Number of registered: " + susies.logins.length + "/" + susies.nb_place);
                         LinearLayout ll = (LinearLayout) findViewById(R.id.people);
 
@@ -77,6 +85,35 @@ public class SusieItemActivity extends BaseActivity {
                         Log.d(TAG, error.getMessage());
                     }
                 });
+
+
+        ((Button) findViewById(R.id.registration)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                Log.d("id =====>", String.valueOf(id));
+                Log.d("calendar_id =====>", String.valueOf(calendar_id));
+                api.susieSub(MySharedPreferences.readToPreferences(getBaseContext(), getString(R.string.token_string), getString(R.string.empty_string)), id, calendar_id,
+                        new Callback<Objects>() {
+                            @Override
+
+                            public void success(Objects ret, Response response) {
+                                Log.d("ret =====>", "lol");
+                            }
+
+                            @Override
+                            public void failure(RetrofitError error) {
+                                Log.d(TAG2, error.getMessage());
+                            }
+                        });
+
+
+
+
+            }
+        });
+
 
         if (susie != null)
             toolbar.setTitle(susie.title);

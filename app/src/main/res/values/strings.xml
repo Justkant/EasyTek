@@ -59,5 +59,6 @@
     <string name="susie_registered">registered</string>
     <string name="title_activity_notif">Notifications</string>
     <string name="title_activity_profile">Profile</string>
+    <string name="registration">Register</string>
 
 </resources>

@@ -15,32 +15,45 @@
         <TextView
             android:id="@+id/acti_title"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_magin" />
 
         <TextView
             android:id="@+id/title_module"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_magin" />
 
         <TextView
             android:id="@+id/date"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_magin" />
 
         <TextView
             android:id="@+id/registration_limit"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_magin" />
 
         <TextView
             android:id="@+id/location"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_magin" />
 
         <TextView
             android:id="@+id/group_size"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_magin" />
+
+        <Button
+            android:id="@+id/registration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/registration"
+            android:layout_marginTop="@dimen/small_magin" />
 
     </LinearLayout>
 </ScrollView>

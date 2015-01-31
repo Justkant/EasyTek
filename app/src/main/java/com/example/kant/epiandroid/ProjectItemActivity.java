@@ -4,14 +4,18 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.kant.epiandroid.EpitechAPI.EpitechAPI;
 import com.example.kant.epiandroid.EpitechAPI.Project;
+import com.example.kant.epiandroid.EpitechAPI.ProjectGroup;
 import com.example.kant.epiandroid.EpitechAPI.Projects;
 import com.example.kant.epiandroid.EpitechAPI.Susie;
+
+import java.util.Objects;
 
 import retrofit.Callback;
 import retrofit.RestAdapter;
@@ -24,9 +28,15 @@ import retrofit.client.Response;
 public class ProjectItemActivity extends BaseActivity {
 
     private static final String TAG = "ProjectItemActivity";
+    private static final String TAG2 = "ProjectItemActivity2";
 
     private Projects project = null;
     private EpitechAPI api;
+
+    private String scolaryear;
+    private String codemodule;
+    private String codeinstance;
+    private String codeacti;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +60,10 @@ public class ProjectItemActivity extends BaseActivity {
                 new Callback<Project>() {
                     @Override
                     public void success(Project projects, Response response) {
+                        scolaryear = projects.scolaryear;
+                        codemodule = projects.codemodule;
+                        codeinstance = projects.codeinstance;
+                        codeacti = projects.codeacti;
                         ((TextView) findViewById(R.id.date)).setText("Begin at " + projects.begin + " and end at " + projects.end);
                         if (projects.end_register != null)
                             ((TextView) findViewById(R.id.registration_limit)).setText("Registration deadline: " + projects.end_register);
@@ -66,6 +80,31 @@ public class ProjectItemActivity extends BaseActivity {
                 });
 
 
+
+        ((Button) findViewById(R.id.registration)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                api.projectSub(MySharedPreferences.readToPreferences(getBaseContext(), getString(R.string.token_string), getString(R.string.empty_string)), scolaryear, codemodule, codeinstance, codeacti,
+                        new Callback<ProjectGroup>() {
+                            @Override
+
+                            public void success(ProjectGroup ret, Response response) {
+                                Log.d("ret =====>", "lol");
+                            }
+
+                            @Override
+                            public void failure(RetrofitError error) {
+                                Log.d(TAG2, error.getMessage());
+                            }
+                        });
+
+
+
+
+            }
+        });
 
 
         if (project != null)

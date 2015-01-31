@@ -1,6 +1,7 @@
 package com.example.kant.epiandroid.EpitechAPI;
 
 import java.util.List;
+import java.util.Objects;
 
 import retrofit.Callback;
 import retrofit.http.DELETE;
@@ -49,8 +50,8 @@ public interface EpitechAPI {
     @POST(Constants.SUSIE_URL)
     public void susieSub(@Field(Constants.TOKEN) String token,
                          @Field(Constants.ID) int id,
-                         @Query(Constants.CALENDAR_ID) int id_calendar,
-                         Callback<String> callback);
+                         @Field(Constants.CALENDAR_ID) int id_calendar,
+                         Callback<Objects> callback);
 
     @FormUrlEncoded()
     @DELETE(Constants.SUSIE_URL)
