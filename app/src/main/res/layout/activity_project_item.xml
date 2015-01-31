@@ -1,59 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content">
+    <include layout="@layout/app_bar" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:weightSum="1">
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
 
-        <include layout="@layout/app_bar" />
-
-        <TextView
-            android:id="@+id/acti_title"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/small_magin" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/title_module"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/small_magin" />
+            <TextView
+                android:id="@+id/acti_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_magin" />
 
-        <TextView
-            android:id="@+id/date"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/small_magin" />
+            <TextView
+                android:id="@+id/title_module"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_magin" />
 
-        <TextView
-            android:id="@+id/registration_limit"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/small_magin" />
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_magin" />
 
-        <TextView
-            android:id="@+id/location"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/small_magin" />
+            <TextView
+                android:id="@+id/registration_limit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_magin" />
 
-        <TextView
-            android:id="@+id/group_size"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/small_magin" />
+            <TextView
+                android:id="@+id/location"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_magin" />
 
-        <Button
-            android:id="@+id/registration"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/registration"
-            android:layout_marginTop="@dimen/small_magin" />
+            <TextView
+                android:id="@+id/group_size"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_magin" />
 
-    </LinearLayout>
-</ScrollView>
+            <Button
+                android:id="@+id/registration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_magin"
+                android:text="@string/registration" />
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

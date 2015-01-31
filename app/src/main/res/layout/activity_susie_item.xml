@@ -1,67 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
 
-    <LinearLayout
-        android:id="@+id/content"
+    <include layout="@layout/app_bar" />
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:weightSum="1">
-
-        <include layout="@layout/app_bar" />
-
-
-        <TextView
-            android:id="@+id/susie_title"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/description"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/small_magin"/>
-
-
-        <TextView
-            android:id="@+id/date"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/small_magin" />
-
-        <TextView
-            android:id="@+id/period"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/small_magin" />
-
-        <TextView
-            android:id="@+id/place"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/small_magin" />
-
-        <Button
-            android:id="@+id/registration"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/registration"
-            android:layout_marginTop="@dimen/small_magin" />
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/people"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="@dimen/small_magin" >
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/susie_title"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_magin" />
+
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_magin" />
+
+            <TextView
+                android:id="@+id/period"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_magin" />
+
+            <TextView
+                android:id="@+id/place"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_magin" />
+
+            <Button
+                android:id="@+id/registration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_magin"
+                android:text="@string/registration" />
+
+            <LinearLayout
+                android:id="@+id/people"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_magin"
+                android:orientation="vertical">
+
+            </LinearLayout>
 
         </LinearLayout>
 
+    </ScrollView>
 
+</LinearLayout>
 
-    </LinearLayout>
-
-
-</ScrollView>
