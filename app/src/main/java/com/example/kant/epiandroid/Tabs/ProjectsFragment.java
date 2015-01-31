@@ -56,7 +56,7 @@ public class ProjectsFragment extends Fragment implements ProjectsAdapter.ClickL
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setOnScrollListener(((BaseActivity) getActivity()).getRecyclerScrollListener());
 
-        api.projectsGet(MySharedPreferences.readToPreferences(getActivity(), getString(R.string.token_string), getString(R.string.empty_string)),
+        api.projectsGet(MySharedPreferences.readToPreferences(getActivity(), getString(R.string.token_string), ""),
                 new Callback<List<Projects>>() {
                     @Override
                     public void success(List<Projects> projects, Response response) {

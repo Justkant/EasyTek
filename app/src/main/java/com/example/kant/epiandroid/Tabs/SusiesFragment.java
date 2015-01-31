@@ -97,7 +97,7 @@ public class SusiesFragment extends Fragment implements SusiesAdapter.ClickListe
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setOnScrollListener(((BaseActivity) getActivity()).getRecyclerScrollListener());
 
-        api.susiesGet(MySharedPreferences.readToPreferences(getActivity(), getString(R.string.token_string), getString(R.string.empty_string)), start, end, type,
+        api.susiesGet(MySharedPreferences.readToPreferences(getActivity(), getString(R.string.token_string), ""), start, end, type,
                 new Callback<List<Susie>>() {
                     @Override
                     public void success(List<Susie> susies, Response response) {

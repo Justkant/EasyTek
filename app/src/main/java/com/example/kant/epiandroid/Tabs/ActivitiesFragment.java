@@ -55,7 +55,7 @@ public class ActivitiesFragment extends Fragment implements ActivitiesAdapter.Cl
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setOnScrollListener(((BaseActivity) getActivity()).getRecyclerScrollListener());
 
-        api.projectsGet(MySharedPreferences.readToPreferences(getActivity(), getString(R.string.token_string), getString(R.string.empty_string)),
+        api.projectsGet(MySharedPreferences.readToPreferences(getActivity(), getString(R.string.token_string), ""),
                 new Callback<List<Projects>>() {
                     @Override
                     public void success(List<Projects> projects, Response response) {
@@ -66,7 +66,7 @@ public class ActivitiesFragment extends Fragment implements ActivitiesAdapter.Cl
                                     && !projects.get(i).type_acti.equals("Projets")
                                     && !projects.get(i).type_acti.equals("Mini-Projets")
                                     && !projects.get(i).type_acti.equals("Soutenance")
-                                    && MySharedPreferences.readToPreferences(getActivity(), "location", getString(R.string.empty_string)).equals(projects.get(i).code_location)) {
+                                    && MySharedPreferences.readToPreferences(getActivity(), "location", "").equals(projects.get(i).code_location)) {
                                 adapterData.add(projects.get(i));
                             }
                         }
