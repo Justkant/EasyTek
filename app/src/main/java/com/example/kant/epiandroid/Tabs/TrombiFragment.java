@@ -15,7 +15,6 @@ import com.example.kant.epiandroid.R;
 public class TrombiFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_trombi, container, false);
-        return view;
+        return inflater.inflate(R.layout.fragment_trombi, container, false);
     }
 }

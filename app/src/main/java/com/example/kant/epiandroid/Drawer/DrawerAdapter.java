@@ -15,6 +15,7 @@ import java.util.List;
 
 /**
  * Created by Quentin on 23/01/2015.
+ * EpiAndroid Project.
  */
 public class DrawerAdapter extends RecyclerView.Adapter<DrawerAdapter.MyViewHolder> {
 

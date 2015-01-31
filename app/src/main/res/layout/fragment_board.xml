@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/date_proto"
-            android:inputType="textPersonName"/>
+            android:inputType="date"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -32,13 +32,13 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/date_proto"
-            android:inputType="textPersonName"/>
+            android:inputType="date"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/valid"
-            android:text="Ok" />
+            android:text="@string/board_date_validation" />
 
         </LinearLayout>
 

@@ -1,9 +1,7 @@
 package com.example.kant.epiandroid;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.util.LruCache;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -37,7 +35,7 @@ public class HomeActivity extends BaseActivity {
         api = restAdapter.create(EpitechAPI.class);
 
         if (savedInstanceState == null) {
-            if (MySharedPreferences.readToPreferences(this, getString(R.string.token_string), getString(R.string.empty_string)).length() == 0) {
+            if (MySharedPreferences.readToPreferences(this, getString(R.string.token_string), "").length() == 0) {
                 startActivity(new Intent(this, LoginActivity.class));
                 finish();
                 return;
@@ -46,7 +44,7 @@ public class HomeActivity extends BaseActivity {
 
         getActionBarToolbar().setTitle(R.string.title_activity_main);
         setSupportActionBar(getActionBarToolbar());
-        api.infosGet(MySharedPreferences.readToPreferences(this, getString(R.string.token_string), getString(R.string.empty_string)), new Callback<HomeInfos>() {
+        api.infosGet(MySharedPreferences.readToPreferences(this, getString(R.string.token_string), ""), new Callback<HomeInfos>() {
             @Override
             public void success(HomeInfos homeInfos, Response response) {
                 mHomeInfos = homeInfos;
@@ -147,7 +145,7 @@ public class HomeActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (MySharedPreferences.readToPreferences(this, getString(R.string.token_string), getString(R.string.empty_string)).length() == 0) {
+        if (MySharedPreferences.readToPreferences(this, getString(R.string.token_string), "").length() == 0) {
             startActivity(new Intent(this, LoginActivity.class));
             finish();
         }

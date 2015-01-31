@@ -7,7 +7,7 @@ public class HomeInfos {
 
     public String ip;
     public Board board;
-    public List<History> history = new ArrayList<History>();
+    public List<History> history = new ArrayList<>();
     public Infos infos;
     public Current current;
 

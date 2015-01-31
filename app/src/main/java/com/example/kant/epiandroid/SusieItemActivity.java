@@ -25,11 +25,11 @@ import retrofit.client.Response;
 
 /**
  * Created by jaccar_a on 30/01/15.
+ * EpiAndroid Project.
  */
 public class SusieItemActivity extends BaseActivity {
 
     private static final String TAG = "SusiesItemActivity";
-    private static final String TAG2 = "SusiesItemActivity2";
 
     private Susie susie = null;
     private EpitechAPI api;
@@ -57,7 +57,7 @@ public class SusieItemActivity extends BaseActivity {
         ((TextView) findViewById(R.id.period)).setText("Start at " + susie.start.substring(susie.start.indexOf(" "), susie.start.length()) + " End at " + susie.end.substring(susie.end.indexOf(" "), susie.end.length()));
 
 
-        api.susieGet(MySharedPreferences.readToPreferences(this, getString(R.string.token_string), getString(R.string.empty_string)), susie.id, susie.id_calendar,
+        api.susieGet(MySharedPreferences.readToPreferences(this, getString(R.string.token_string), ""), susie.id, susie.id_calendar,
                 new Callback<Susie>() {
                     @Override
                     public void success(Susie susies, Response response) {
@@ -87,28 +87,22 @@ public class SusieItemActivity extends BaseActivity {
                 });
 
 
-        ((Button) findViewById(R.id.registration)).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.registration).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-                Log.d("id =====>", String.valueOf(id));
-                Log.d("calendar_id =====>", String.valueOf(calendar_id));
-                api.susieSub(MySharedPreferences.readToPreferences(getBaseContext(), getString(R.string.token_string), getString(R.string.empty_string)), id, calendar_id,
+                api.susieSub(MySharedPreferences.readToPreferences(getBaseContext(), getString(R.string.token_string), ""), id, calendar_id,
                         new Callback<Objects>() {
                             @Override
 
                             public void success(Objects ret, Response response) {
-                                Log.d("ret =====>", "lol");
+                                Log.d(TAG, response.getReason());
                             }
 
                             @Override
                             public void failure(RetrofitError error) {
-                                Log.d(TAG2, error.getMessage());
+                                Log.d(TAG, error.getMessage());
                             }
                         });
-
-
 
 
             }
@@ -149,7 +143,7 @@ public class SusieItemActivity extends BaseActivity {
 
         protected void onPostExecute(Bitmap result) {
             bmImage.setImageBitmap(result);
-            }
+        }
     }
 
 }

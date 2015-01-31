@@ -5,12 +5,12 @@ import java.util.List;
 
 public class Board {
 
-    public List<BoardProject> boardProjects = new ArrayList<BoardProject>();
-    public List<Object> notes = new ArrayList<Object>();
-    public List<BoardSusie> susies = new ArrayList<BoardSusie>();
-    public List<BoardActivite> board_activites = new ArrayList<BoardActivite>();
-    public List<BoardModule> modules = new ArrayList<BoardModule>();
-    public List<Object> stages = new ArrayList<Object>();
-    public List<Object> tickets = new ArrayList<Object>();
+    public List<BoardProject> boardProjects = new ArrayList<>();
+    public List<Object> notes = new ArrayList<>();
+    public List<BoardSusie> susies = new ArrayList<>();
+    public List<BoardActivite> board_activites = new ArrayList<>();
+    public List<BoardModule> modules = new ArrayList<>();
+    public List<Object> stages = new ArrayList<>();
+    public List<Object> tickets = new ArrayList<>();
 
 }

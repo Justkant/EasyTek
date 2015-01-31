@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.ViewPager;
-import android.view.Menu;
 
 import com.example.kant.epiandroid.Tabs.SlidingTabLayout;
 import com.example.kant.epiandroid.Tabs.SlidingTabPagerAdapter;
@@ -47,7 +46,7 @@ public class BoardActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (MySharedPreferences.readToPreferences(this, getString(R.string.token_string), getString(R.string.empty_string)).length() == 0) {
+        if (MySharedPreferences.readToPreferences(this, getString(R.string.token_string), "").length() == 0) {
             startActivity(new Intent(this, LoginActivity.class));
             finish();
         }

@@ -12,6 +12,7 @@ import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 import android.support.v4.util.Pair;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPager;
@@ -33,8 +34,8 @@ import java.util.Locale;
 
 /**
  * Created by Quentin on 23/01/2015.
+ * EpiAndroid Project.
  */
-
 public class SlidingTabLayout extends HorizontalScrollView {
 
     private static final float OPAQUE = 1.0f;
@@ -349,7 +350,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
             lineLeft = (currentPositionOffset * nextTabLeft + (1f - currentPositionOffset) * lineLeft);
             lineRight = (currentPositionOffset * nextTabRight + (1f - currentPositionOffset) * lineRight);
         }
-        return new Pair<Float, Float>(lineLeft, lineRight);
+        return new Pair<>(lineLeft, lineRight);
     }
 
     @Override
@@ -579,7 +580,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
         }
 
         @Override
-        public void writeToParcel(Parcel dest, int flags) {
+        public void writeToParcel(@NonNull Parcel dest, int flags) {
             super.writeToParcel(dest, flags);
             dest.writeInt(currentPosition);
         }

@@ -31,7 +31,7 @@ public class Planning {
     public Object event_registered;
     public String titlemodule;
     public boolean register_student;
-    public List<User> prof_inst = new ArrayList<User>();
+    public List<User> prof_inst = new ArrayList<>();
     public boolean project;
     public Object rdv_group_registered;
     public String type_title;

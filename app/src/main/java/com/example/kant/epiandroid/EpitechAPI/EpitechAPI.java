@@ -13,8 +13,8 @@ import retrofit.http.Query;
 
 /**
  * Created by Quentin on 20/01/2015.
+ * EpiAndroid Project.
  */
-
 public interface EpitechAPI {
 
     @FormUrlEncoded

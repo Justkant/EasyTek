@@ -30,10 +30,10 @@ public class ModuleInfo {
     public String instance_location;
     public String hidden;
     public String old_acl_backup;
-    public List<ModuleUser> resp = new ArrayList<ModuleUser>();
-    public List<ModuleUser> assistant = new ArrayList<ModuleUser>();
-    public List<String> rights = new ArrayList<String>();
-    public List<ModuleUser> templateResp = new ArrayList<ModuleUser>();
+    public List<ModuleUser> resp = new ArrayList<>();
+    public List<ModuleUser> assistant = new ArrayList<>();
+    public List<String> rights = new ArrayList<>();
+    public List<ModuleUser> templateResp = new ArrayList<>();
     public Boolean allow_register;
     public int student_registered;
     public String student_grade;
@@ -41,5 +41,5 @@ public class ModuleInfo {
     public String color;
     public String student_flags;
     public Boolean current_resp;
-    public List<Activite> activites = new ArrayList<Activite>();
+    public List<Activite> activites = new ArrayList<>();
 }

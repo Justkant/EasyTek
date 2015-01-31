@@ -29,7 +29,7 @@ import retrofit.client.Response;
 public class PlanningFragment extends Fragment implements PlanningAdapter.ClickListener {
 
     private EpitechAPI api;
-    private List<Planning> planning = new ArrayList<Planning>();
+    private List<Planning> planning = new ArrayList<>();
     private PlanningAdapter mPlanningAdapter;
     private String planningDate;
 

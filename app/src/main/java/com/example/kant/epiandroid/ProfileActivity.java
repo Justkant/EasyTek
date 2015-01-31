@@ -2,7 +2,6 @@ package com.example.kant.epiandroid;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -46,7 +45,7 @@ public class ProfileActivity extends BaseActivity {
             }
         });
 
-        api.userGet(MySharedPreferences.readToPreferences(this, getString(R.string.token_string), getString(R.string.empty_string)),
+        api.userGet(MySharedPreferences.readToPreferences(this, getString(R.string.token_string), ""),
                 profileLogin, new Callback<Infos>() {
                     @Override
                     public void success(Infos infos, Response response) {

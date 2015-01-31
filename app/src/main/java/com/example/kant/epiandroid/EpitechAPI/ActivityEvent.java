@@ -23,6 +23,6 @@ public class ActivityEvent {
     public String already_register;
     public String user_status;
     public String allow_token;
-    public List<Object> assistants = new ArrayList<Object>();
+    public List<Object> assistants = new ArrayList<>();
 
 }

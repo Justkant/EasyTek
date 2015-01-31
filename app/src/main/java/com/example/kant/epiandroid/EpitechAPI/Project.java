@@ -29,7 +29,7 @@ public class Project implements Serializable {
     public String codeinstance;
     public String codemodule;
     public String scolaryear;
-    public List<String> rights = new ArrayList<String>();
+    public List<String> rights = new ArrayList<>();
     public String end_register;
     public int nb_min;
     public int nb_max;

@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -18,8 +17,8 @@ import java.util.Calendar;
 public class SlidingTabPagerAdapter extends FragmentStatePagerAdapter {
 
     private Calendar cal;
-    private ArrayList<String> tabs = new ArrayList<String>();
-    private ArrayList<String> dates = new ArrayList<String>();
+    private ArrayList<String> tabs = new ArrayList<>();
+    private ArrayList<String> dates = new ArrayList<>();
 
     public SlidingTabPagerAdapter(FragmentManager fm, Context context) {
         super(fm);
@@ -65,7 +64,7 @@ public class SlidingTabPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getItemPosition(Object object) {
-        PlanningFragment fragment = (PlanningFragment)object;
+        PlanningFragment fragment = (PlanningFragment) object;
         String date = fragment.getDate();
         int position = dates.indexOf(date);
 

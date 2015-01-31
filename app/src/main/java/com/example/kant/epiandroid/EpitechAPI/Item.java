@@ -22,7 +22,7 @@ public class Item {
     private String instance_location;
     private String flags;
     private String credits;
-    private List<String> rights = new ArrayList<String>();
+    private List<String> rights = new ArrayList<>();
     private String status;
     private Object waiting_grades;
     private String active_promo;

@@ -41,7 +41,7 @@ public class SusiesFragment extends Fragment implements SusiesAdapter.ClickListe
     private static final String TAG = "SusiesFragment";
     private String TYPE = "all";
 
-    private List<Susie> adapterData = new ArrayList<Susie>();
+    private List<Susie> adapterData = new ArrayList<>();
     private SusiesAdapter mSusiesAdapter;
     private EpitechAPI api;
 
@@ -60,14 +60,14 @@ public class SusiesFragment extends Fragment implements SusiesAdapter.ClickListe
         final View view = inflater.inflate(R.layout.fragment_board, container, false);
         setHasOptionsMenu(true);
 
-        ((LinearLayout) view.findViewById(R.id.susie_visual)).setVisibility(View.VISIBLE);
-        ((Button) view.findViewById(R.id.valid)).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.susie_visual).setVisibility(View.VISIBLE);
+        view.findViewById(R.id.valid).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 sendRequest(view, ((EditText) view.findViewById(R.id.start_date)).getText().toString(), ((EditText) view.findViewById(R.id.end_date)).getText().toString(), TYPE);
             }
         });
-        ((TextView) view.findViewById(R.id.test)).setVisibility(View.VISIBLE);
+        view.findViewById(R.id.test).setVisibility(View.VISIBLE);
 
 
         sendRequest(view, "2015/02/06", "2015/02/06", TYPE);

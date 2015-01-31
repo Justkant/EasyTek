@@ -4,10 +4,6 @@ import android.app.Application;
 import android.graphics.Bitmap;
 import android.util.LruCache;
 
-import com.example.kant.epiandroid.EpitechAPI.EpitechAPI;
-
-import retrofit.RestAdapter;
-
 /**
  * Created by Quentin on 30/01/2015.
  * EpiAndroid Project.

@@ -38,11 +38,11 @@ public class Infos {
     public int studentyear;
     public boolean admin;
     public boolean editable;
-    public List<Group> groups = new ArrayList<Group>();
-    public List<Event> events = new ArrayList<Event>();
+    public List<Group> groups = new ArrayList<>();
+    public List<Event> events = new ArrayList<>();
     public int credits;
-    public List<Gpa> gpa = new ArrayList<Gpa>();
-    public List<AverageGPA> averageGPA = new ArrayList<AverageGPA>();
+    public List<Gpa> gpa = new ArrayList<>();
+    public List<AverageGPA> averageGPA = new ArrayList<>();
     public Object spice;
     public Nsstat nsstat;
     public int decoded;

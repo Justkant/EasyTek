@@ -9,5 +9,5 @@ import java.util.List;
  */
 
 public class Marks {
-    public List<Mark> notes = new ArrayList<Mark>();
+    public List<Mark> notes = new ArrayList<>();
 }

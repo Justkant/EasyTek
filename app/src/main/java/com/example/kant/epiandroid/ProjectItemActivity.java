@@ -5,17 +5,12 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.kant.epiandroid.EpitechAPI.EpitechAPI;
 import com.example.kant.epiandroid.EpitechAPI.Project;
 import com.example.kant.epiandroid.EpitechAPI.ProjectGroup;
 import com.example.kant.epiandroid.EpitechAPI.Projects;
-import com.example.kant.epiandroid.EpitechAPI.Susie;
-
-import java.util.Objects;
 
 import retrofit.Callback;
 import retrofit.RestAdapter;
@@ -24,11 +19,11 @@ import retrofit.client.Response;
 
 /**
  * Created by jaccar_a on 29/01/15.
+ * EpiAndroid Project.
  */
 public class ProjectItemActivity extends BaseActivity {
 
     private static final String TAG = "ProjectItemActivity";
-    private static final String TAG2 = "ProjectItemActivity2";
 
     private Projects project = null;
     private EpitechAPI api;
@@ -56,7 +51,8 @@ public class ProjectItemActivity extends BaseActivity {
         ((TextView) findViewById(R.id.acti_title)).setText(project.acti_title);
 
 
-        api.projectGet(MySharedPreferences.readToPreferences(this, getString(R.string.token_string), getString(R.string.empty_string)), project.scolaryear, project.codemodule, project.codeinstance, project.codeacti,
+        api.projectGet(MySharedPreferences.readToPreferences(this, getString(R.string.token_string), ""),
+                project.scolaryear, project.codemodule, project.codeinstance, project.codeacti,
                 new Callback<Project>() {
                     @Override
                     public void success(Project projects, Response response) {
@@ -80,27 +76,25 @@ public class ProjectItemActivity extends BaseActivity {
                 });
 
 
-
-        ((Button) findViewById(R.id.registration)).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.registration).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
-                api.projectSub(MySharedPreferences.readToPreferences(getBaseContext(), getString(R.string.token_string), getString(R.string.empty_string)), scolaryear, codemodule, codeinstance, codeacti,
+                api.projectSub(MySharedPreferences.readToPreferences(getBaseContext(), getString(R.string.token_string), ""),
+                        scolaryear, codemodule, codeinstance, codeacti,
                         new Callback<ProjectGroup>() {
                             @Override
 
                             public void success(ProjectGroup ret, Response response) {
-                                Log.d("ret =====>", "lol");
+                                Log.d(TAG, response.getReason());
                             }
 
                             @Override
                             public void failure(RetrofitError error) {
-                                Log.d(TAG2, error.getMessage());
+                                Log.d(TAG, error.getMessage());
                             }
                         });
-
-
 
 
             }

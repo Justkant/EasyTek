@@ -10,6 +10,6 @@ import java.util.List;
  */
 
 public class AllModules {
-    public List<Item> items = new ArrayList<Item>();
+    public List<Item> items = new ArrayList<>();
 }
 

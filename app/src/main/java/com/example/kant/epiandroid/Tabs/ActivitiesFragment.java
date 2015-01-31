@@ -32,7 +32,7 @@ import retrofit.client.Response;
 public class ActivitiesFragment extends Fragment implements ActivitiesAdapter.ClickListener {
     private static final String TAG = "Activities Fragment";
 
-    private List<Projects> adapterData = new ArrayList<Projects>();
+    private List<Projects> adapterData = new ArrayList<>();
     private ActivitiesAdapter mActivitiesAdapter;
     private EpitechAPI api;
 

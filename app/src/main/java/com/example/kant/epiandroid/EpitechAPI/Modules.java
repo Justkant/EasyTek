@@ -8,5 +8,5 @@ import java.util.List;
  * EpiAndroid Project.
  */
 public class Modules {
-    public List<Module> modules = new ArrayList<Module>();
+    public List<Module> modules = new ArrayList<>();
 }

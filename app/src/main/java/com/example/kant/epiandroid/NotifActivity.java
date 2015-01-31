@@ -25,7 +25,7 @@ import retrofit.client.Response;
  */
 public class NotifActivity extends BaseActivity implements NotifsAdapter.ClickListener {
 
-    private List<Message> mMessages = new ArrayList<Message>();
+    private List<Message> mMessages = new ArrayList<>();
     private NotifsAdapter mNotifsAdapter;
 
     @Override
@@ -58,7 +58,7 @@ public class NotifActivity extends BaseActivity implements NotifsAdapter.ClickLi
         mRecyclerView.setAdapter(mNotifsAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        api.messagesGet(MySharedPreferences.readToPreferences(this, getString(R.string.token_string), getString(R.string.empty_string)), new Callback<List<Message>>() {
+        api.messagesGet(MySharedPreferences.readToPreferences(this, getString(R.string.token_string), ""), new Callback<List<Message>>() {
             @Override
             public void success(List<Message> messages, Response response) {
                 mMessages.clear();

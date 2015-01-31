@@ -1,10 +1,6 @@
 package com.example.kant.epiandroid.EpitechAPI;
 
-import android.util.Log;
-
 import java.io.Serializable;
-import java.lang.reflect.Array;
-import java.util.List;
 
 /**
  * Created by Quentin on 29/01/2015.
@@ -39,5 +35,5 @@ public class Susie implements Serializable {
     public String type;
     public boolean has_to_rate;
     public User owner;
-    public Logins [] logins;
+    public Logins[] logins;
 }

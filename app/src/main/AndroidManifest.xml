@@ -17,6 +17,9 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".BaseActivity">
+        </activity>
+        <activity
             android:name=".BoardActivity">
         </activity>
         <activity

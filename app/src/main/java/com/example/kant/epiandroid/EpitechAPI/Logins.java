@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 /**
  * Created by jaccar_a on 30/01/15.
+ * EpiAndroid Project.
  */
 public class Logins implements Serializable {
 

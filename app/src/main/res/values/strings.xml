@@ -35,7 +35,6 @@
     <string name="base_url">http://epitech-api.herokuapp.com</string>
     <string name="user_learned_string">user_learned_drawer</string>
     <string name="token_string">token</string>
-    <string name="empty_string"></string>
     <string name="drawer_profile_image_desc">Profile Image</string>
     <string name="login_textview">Log time : 0h\nlogin</string>
     <string name="username_textview">Firstname Lastname</string>
@@ -67,5 +66,6 @@
     <string name="planning_right_title">Next week</string>
     <string name="planning_today_title">Today</string>
     <string name="home_trombi_button">Trombi</string>
+    <string name="board_date_validation">Ok</string>
 
 </resources>

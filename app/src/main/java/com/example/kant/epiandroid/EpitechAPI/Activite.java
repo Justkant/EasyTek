@@ -44,5 +44,5 @@ public class Activite {
     public int nb_planified;
     public int note;
     public Object project;
-    public List<ActivityEvent> events = new ArrayList<ActivityEvent>();
+    public List<ActivityEvent> events = new ArrayList<>();
 }

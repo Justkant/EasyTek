@@ -9,6 +9,7 @@ import com.example.kant.epiandroid.R;
 
 /**
  * Created by Quentin on 23/01/2015.
+ * EpiAndroid Project.
  */
 public class SlidingTabPagerAdapter extends FragmentPagerAdapter {
 

@@ -33,7 +33,7 @@ public class ProjectsFragment extends Fragment implements ProjectsAdapter.ClickL
 
     private static final String TAG = "ProjectsFragment";
 
-    private List<Projects> adapterData = new ArrayList<Projects>();
+    private List<Projects> adapterData = new ArrayList<>();
     private ProjectsAdapter mProjectsAdapter;
     private EpitechAPI api;
 

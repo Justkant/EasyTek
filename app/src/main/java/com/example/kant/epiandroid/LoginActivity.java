@@ -1,13 +1,10 @@
 package com.example.kant.epiandroid;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
-import android.util.LruCache;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -111,7 +108,7 @@ public class LoginActivity extends BaseActivity {
 
                     @Override
                     public void failure(RetrofitError retrofitError) {
-                        mPassword.setText(getString(R.string.empty_string));
+                        mPassword.setText("");
                         mPassword.setError(getString(R.string.login_error));
                     }
                 });

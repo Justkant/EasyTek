@@ -9,6 +9,6 @@ import java.util.List;
  */
 
 public class Trombi {
-    public List<TrombiItem> items = new ArrayList<TrombiItem>();
+    public List<TrombiItem> items = new ArrayList<>();
     public int total;
 }
