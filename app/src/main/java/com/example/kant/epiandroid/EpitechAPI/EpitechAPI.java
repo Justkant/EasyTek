@@ -53,12 +53,11 @@ public interface EpitechAPI {
                          @Field(Constants.CALENDAR_ID) int id_calendar,
                          Callback<Objects> callback);
 
-    @FormUrlEncoded()
     @DELETE(Constants.SUSIE_URL)
-    public void susieUnsub(@Field(Constants.TOKEN) String token,
-                           @Field(Constants.ID) int id,
+    public void susieUnsub(@Query(Constants.TOKEN) String token,
+                           @Query(Constants.ID) int id,
                            @Query(Constants.CALENDAR_ID) int id_calendar,
-                           Callback<String> callback);
+                           Callback<Objects> callback);
 
     @GET(Constants.PROJECTS_URL)
     public void projectsGet(@Query(Constants.TOKEN) String token,
@@ -75,20 +74,19 @@ public interface EpitechAPI {
     @FormUrlEncoded
     @POST(Constants.PROJECT_URL)
     public void projectSub(@Field(Constants.TOKEN) String token,
-                           @Field(Constants.SCOLARYEAR) String scolaryear,
+                           @Field(Constants.SCOLARYEAR) int scolaryear,
                            @Field(Constants.CODEMODULE) String codemodule,
                            @Field(Constants.CODEINSTANCE) String codeinstance,
                            @Field(Constants.CODEACTI) String codeacti,
                            Callback<ProjectGroup> callback);
 
-    @FormUrlEncoded
     @DELETE(Constants.PROJECT_URL)
-    public void projectUnsub(@Field(Constants.TOKEN) String token,
-                             @Field(Constants.SCOLARYEAR) String scolaryear,
-                             @Field(Constants.CODEMODULE) String codemodule,
-                             @Field(Constants.CODEINSTANCE) String codeinstance,
-                             @Field(Constants.CODEACTI) String codeacti,
-                             Callback<String> callback);
+    public void projectUnsub(@Query(Constants.TOKEN) String token,
+                             @Query(Constants.SCOLARYEAR) int scolaryear,
+                             @Query(Constants.CODEMODULE) String codemodule,
+                             @Query(Constants.CODEINSTANCE) String codeinstance,
+                             @Query(Constants.CODEACTI) String codeacti,
+                             Callback<ProjectGroup> callback);
 
     @GET(Constants.PROJECT_FILES_URL)
     public void projectFilesGet(@Query(Constants.TOKEN) String token,

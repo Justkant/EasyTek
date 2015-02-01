@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.kant.epiandroid.ActivitieItemActivity;
 import com.example.kant.epiandroid.BaseActivity;
 import com.example.kant.epiandroid.EpitechAPI.EpitechAPI;
 import com.example.kant.epiandroid.EpitechAPI.Projects;
@@ -84,7 +85,7 @@ public class ActivitiesFragment extends Fragment implements ActivitiesAdapter.Cl
 
     @Override
     public void itemClicked(int position) {
-        Intent intent = new Intent(getActivity(), ProjectItemActivity.class);
+        Intent intent = new Intent(getActivity(), ActivitieItemActivity.class);
         intent.putExtra("item", adapterData.get(position));
         startActivity(intent);
     }

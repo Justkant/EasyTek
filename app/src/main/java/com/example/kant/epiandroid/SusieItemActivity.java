@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.kant.epiandroid.EpitechAPI.EpitechAPI;
 import com.example.kant.epiandroid.EpitechAPI.Susie;
@@ -96,11 +97,41 @@ public class SusieItemActivity extends BaseActivity {
 
                             public void success(Objects ret, Response response) {
                                 Log.d(TAG, response.getReason());
+                                Toast.makeText(getApplicationContext(), "Registration validated",
+                                        Toast.LENGTH_LONG).show();
                             }
 
                             @Override
                             public void failure(RetrofitError error) {
                                 Log.d(TAG, error.getMessage());
+                                Toast.makeText(getApplicationContext(), "Registration aborted",
+                                        Toast.LENGTH_LONG).show();
+                            }
+                        });
+
+
+            }
+        });
+
+
+        findViewById(R.id.unregistration).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                api.susieUnsub(MySharedPreferences.readToPreferences(getBaseContext(), getString(R.string.token_string), ""), id, calendar_id,
+                        new Callback<Objects>() {
+                            @Override
+
+                            public void success(Objects ret, Response response) {
+                                Log.d(TAG, response.getReason());
+                                Toast.makeText(getApplicationContext(), "Unregistration validated",
+                                        Toast.LENGTH_LONG).show();
+                            }
+
+                            @Override
+                            public void failure(RetrofitError error) {
+                                Log.d(TAG, error.getMessage());
+                                Toast.makeText(getApplicationContext(), "Unregistration aborted",
+                                        Toast.LENGTH_LONG).show();
                             }
                         });
 
