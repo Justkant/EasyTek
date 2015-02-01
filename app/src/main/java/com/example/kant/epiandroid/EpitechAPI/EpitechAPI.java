@@ -137,6 +137,7 @@ public interface EpitechAPI {
                          @Query(Constants.SCOLARYEAR) String scolaryear,
                          @Query(Constants.CODEMODULE) String codemodule,
                          @Query(Constants.CODEINSTANCE) String codeinstance,
+                         @Query(Constants.CODEACTI) String codeacti,
                          @Query(Constants.CODEEVENT) String codeevent,
                          Callback<Event> callback);
 
@@ -146,8 +147,9 @@ public interface EpitechAPI {
                          @Field(Constants.SCOLARYEAR) String scolaryear,
                          @Field(Constants.CODEMODULE) String codemodule,
                          @Field(Constants.CODEINSTANCE) String codeinstance,
+                         @Field(Constants.CODEACTI) String codeacti,
                          @Field(Constants.CODEEVENT) String codeevent,
-                         Callback<String> callback);
+                         Callback<Object> callback);
 
     @FormUrlEncoded
     @DELETE(Constants.EVENT_URL)
@@ -155,8 +157,9 @@ public interface EpitechAPI {
                            @Field(Constants.SCOLARYEAR) String scolaryear,
                            @Field(Constants.CODEMODULE) String codemodule,
                            @Field(Constants.CODEINSTANCE) String codeinstance,
+                           @Field(Constants.CODEACTI) String codeacti,
                            @Field(Constants.CODEEVENT) String codeevent,
-                           Callback<String> callback);
+                           Callback<Object> callback);
 
     @GET(Constants.MARKS_URL)
     public void marksGet(@Query(Constants.TOKEN) String token,
@@ -183,6 +186,7 @@ public interface EpitechAPI {
                                 @Field(Constants.CODEMODULE) String codemodule,
                                 @Field(Constants.CODEINSTANCE) String codeinstance,
                                 @Field(Constants.CODEACTI) String codeacti,
+                                @Field(Constants.CODEEVENT) String codeevent,
                                 @Field(Constants.TOKENVALIDATIONCODE) String tokenvalidationcode,
                                 Callback<String> callback);
 

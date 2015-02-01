@@ -1,5 +1,6 @@
 package com.example.kant.epiandroid.Planning;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,6 +14,7 @@ import com.example.kant.epiandroid.EpitechAPI.EpitechAPI;
 import com.example.kant.epiandroid.EpitechAPI.Planning;
 import com.example.kant.epiandroid.MySharedPreferences;
 import com.example.kant.epiandroid.R;
+import com.example.kant.epiandroid.PlanningItemActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -73,7 +75,9 @@ public class PlanningFragment extends Fragment implements PlanningAdapter.ClickL
 
     @Override
     public void itemClicked(int position) {
-
+        Intent intent = new Intent(getActivity(), PlanningItemActivity.class);
+        intent.putExtra("item", planning.get(position));
+        startActivity(intent);
     }
 
     public String getDate() {

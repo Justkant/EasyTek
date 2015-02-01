@@ -1,5 +1,6 @@
 package com.example.kant.epiandroid.EpitechAPI;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +9,7 @@ import java.util.List;
  * EpiAndroid Project.
  */
 
-public class Planning {
+public class Planning implements Serializable {
     public int nb_group;
     public Object rdv_indiv_registered;
     public String acti_title;
@@ -28,7 +29,7 @@ public class Planning {
     public String end;
     public boolean module_registered;
     public Room room;
-    public Object event_registered;
+    public Boolean event_registered;
     public String titlemodule;
     public boolean register_student;
     public List<User> prof_inst = new ArrayList<>();

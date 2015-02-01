@@ -67,5 +67,6 @@
     <string name="planning_today_title">Today</string>
     <string name="home_trombi_button">Trombi</string>
     <string name="board_date_validation">Ok</string>
+    <string name="token_button_string">Token</string>
 
 </resources>
