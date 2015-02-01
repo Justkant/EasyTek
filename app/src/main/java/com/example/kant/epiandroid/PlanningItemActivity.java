@@ -5,6 +5,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.kant.epiandroid.BaseActivity;
@@ -40,7 +41,7 @@ public class PlanningItemActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_project_item);
+        setContentView(R.layout.planning_item);
         RestAdapter restAdapter = new RestAdapter.Builder()
                 .setEndpoint(getString(R.string.base_url))
                 .build();
@@ -129,7 +130,7 @@ public class PlanningItemActivity extends BaseActivity {
         token_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TextView token_text = (TextView) findViewById(R.id.token_textview);
+                EditText token_text = (EditText) findViewById(R.id.token_textview);
                 api.tokenValidation(MySharedPreferences.readToPreferences(getBaseContext(), getString(R.string.token_string), ""),
                         scolaryear, codemodule, codeinstance, codeacti, codeevent, token_text.getText().toString(),
                         new Callback<String>() {
