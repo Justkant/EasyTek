@@ -9,5 +9,7 @@ public class User implements Serializable {
     public String url;
     public String login;
     public String type;
+    public String status;
+    public boolean master;
 
 }

@@ -28,7 +28,7 @@ public class Project implements Serializable {
     public String num;
     public String codeinstance;
     public String codemodule;
-    public String scolaryear;
+    public int scolaryear;
     public List<String> rights = new ArrayList<>();
     public String end_register;
     public int nb_min;

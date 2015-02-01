@@ -22,9 +22,9 @@ import retrofit.client.Response;
  * Created by jaccar_a on 29/01/15.
  * EpiAndroid Project.
  */
-public class ProjectItemActivity extends BaseActivity {
+public class ActivitieItemActivity extends BaseActivity {
 
-    private static final String TAG = "ProjectItemActivity";
+    private static final String TAG = "ActivitieItemActivity";
 
     private Projects project = null;
     private EpitechAPI api;
@@ -37,7 +37,7 @@ public class ProjectItemActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_project_item);
+        setContentView(R.layout.activity_activitie_item);
         RestAdapter restAdapter = new RestAdapter.Builder()
                 .setEndpoint(getString(R.string.base_url))
                 .build();
@@ -76,73 +76,6 @@ public class ProjectItemActivity extends BaseActivity {
                         Log.d(TAG, error.getMessage());
                     }
                 });
-
-        findViewById(R.id.registration).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-                api.projectSub(MySharedPreferences.readToPreferences(getBaseContext(), getString(R.string.token_string), ""),
-                        scolaryear, codemodule, codeinstance, codeacti,
-                        new Callback<ProjectGroup>() {
-                            @Override
-
-                            public void success(ProjectGroup ret, Response response) {
-                                Toast.makeText(getApplicationContext(), "Registration validated",
-                                        Toast.LENGTH_LONG).show();
-                                Log.d("token => ", MySharedPreferences.readToPreferences(getBaseContext(), getString(R.string.token_string), ""));
-                                Log.d("scolaryear => ", String.valueOf(scolaryear));
-                                Log.d("codemodule => ", codemodule);
-                                Log.d("codeinstance => ", codeinstance);
-                                Log.d("codeacti => ", codeacti);
-                            }
-
-                            @Override
-                            public void failure(RetrofitError error) {
-                                Log.d(TAG, error.getMessage());
-                                Log.d(TAG, String.valueOf(error.getResponse().getStatus()));
-                                Toast.makeText(getApplicationContext(), "Registration aborted",
-                                        Toast.LENGTH_LONG).show();
-
-                                Log.d("scolaryear => ", String.valueOf(scolaryear));
-                                Log.d("codemodule => ", codemodule);
-                                Log.d("codeinstance => ", codeinstance);
-                                Log.d("codeacti => ", codeacti);
-
-                            }
-                        });
-
-
-            }
-        });
-
-        findViewById(R.id.unregistration).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-                api.projectUnsub(MySharedPreferences.readToPreferences(getBaseContext(), getString(R.string.token_string), ""),
-                        scolaryear, codemodule, codeinstance, codeacti,
-                        new Callback<ProjectGroup>() {
-                            @Override
-
-                            public void success(ProjectGroup ret, Response response) {
-                                Toast.makeText(getApplicationContext(), "Unregistration validated",
-                                        Toast.LENGTH_LONG).show();
-                            }
-
-                            @Override
-                            public void failure(RetrofitError error) {
-                                Log.d(TAG, error.getMessage());
-                                Log.d(TAG, error.getLocalizedMessage());
-                                Toast.makeText(getApplicationContext(), "Unregistration aborted",
-                                        Toast.LENGTH_LONG).show();
-                            }
-                        });
-
-
-            }
-        });
 
 
         if (project != null)

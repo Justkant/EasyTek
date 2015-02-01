@@ -9,10 +9,11 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
-        <activity android:name=".HomeActivity">
+        android:theme="@style/AppTheme" >
+        <activity android:name=".HomeActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -26,6 +27,14 @@
         <activity android:name=".NotifActivity"/>
         <activity android:name=".ProfileActivity"/>
         <activity android:name=".PlanningItemActivity"/>
+        <activity
+            android:name=".ActivitieItemActivity"
+            android:label="@string/title_activity_activitie_item" >
+        </activity>
+        <activity
+            android:name=".ModulesItemActivity"
+            android:label="@string/title_activity_modules_item" >
+        </activity>
     </application>
 
 </manifest>

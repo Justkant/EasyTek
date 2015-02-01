@@ -52,27 +52,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/small_magin" />
 
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/small_magin"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/registration"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/small_magin"
-                    android:text="@string/registration" />
-
-                <Button
-                    android:id="@+id/unregistration"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/small_magin"
-                    android:text="@string/unregistration" />
-
-            </LinearLayout>
         </LinearLayout>
 
     </ScrollView>
