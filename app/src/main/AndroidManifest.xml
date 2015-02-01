@@ -39,6 +39,10 @@
             android:name=".ActivitieItemActivity"
             android:label="@string/title_activity_activitie_item" >
         </activity>
+        <activity
+            android:name=".ModulesItemActivity"
+            android:label="@string/title_activity_modules_item" >
+        </activity>
     </application>
 
 </manifest>

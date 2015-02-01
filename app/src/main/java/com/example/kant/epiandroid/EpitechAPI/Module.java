@@ -1,7 +1,8 @@
 package com.example.kant.epiandroid.EpitechAPI;
 
-public class Module {
+import java.io.Serializable;
 
+public class Module implements Serializable {
     public String title;
     public int scolaryear;
     public String id_user_history;

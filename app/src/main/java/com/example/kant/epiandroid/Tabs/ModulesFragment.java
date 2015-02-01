@@ -1,5 +1,6 @@
 package com.example.kant.epiandroid.Tabs;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,7 +13,9 @@ import android.view.ViewGroup;
 import com.example.kant.epiandroid.BaseActivity;
 import com.example.kant.epiandroid.EpitechAPI.EpitechAPI;
 import com.example.kant.epiandroid.EpitechAPI.Modules;
+import com.example.kant.epiandroid.ModulesItemActivity;
 import com.example.kant.epiandroid.MySharedPreferences;
+import com.example.kant.epiandroid.ProjectItemActivity;
 import com.example.kant.epiandroid.R;
 
 import retrofit.Callback;
@@ -38,7 +41,7 @@ public class ModulesFragment extends Fragment implements ModulesAdapter.ClickLis
         RestAdapter restAdapter = new RestAdapter.Builder()
                 .setEndpoint(getString(R.string.base_url))
                 .build();
-
+        restAdapter.setLogLevel(RestAdapter.LogLevel.FULL);
         EpitechAPI api = restAdapter.create(EpitechAPI.class);
 
         RecyclerView mRecyclerView = (RecyclerView) view.findViewById(R.id.board_recycler);
@@ -69,6 +72,8 @@ public class ModulesFragment extends Fragment implements ModulesAdapter.ClickLis
 
     @Override
     public void itemClicked(int position) {
-
+        Intent intent = new Intent(getActivity(), ModulesItemActivity.class);
+        intent.putExtra("item", mModules.modules.get(position));
+        startActivity(intent);
     }
 }
