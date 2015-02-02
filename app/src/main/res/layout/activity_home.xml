@@ -14,70 +14,62 @@
 
         <include layout="@layout/app_bar" />
 
-        <TableLayout
+        <RelativeLayout
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:columnCount="2"
-            android:rowCount="3">
+            android:layout_height="fill_parent">
 
-            <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home_modules_button"
+                android:id="@+id/modules_button"
+                android:layout_alignParentStart="false" />
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/home_modules_button"
-                    android:id="@+id/modules_button"
-                    android:layout_span="2" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home_activities_button"
+                android:id="@+id/activities_button"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/modules_button"
+                android:layout_toEndOf="@+id/modules_button" />
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/home_activities_button"
-                    android:id="@+id/activities_button"
-                    android:layout_column="3" />
-            </TableRow>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home_projects_button"
+                android:id="@+id/projects_button"
+                android:layout_below="@+id/modules_button"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
 
-            <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home_susies_button"
+                android:id="@+id/susies_button"
+                android:layout_alignTop="@+id/projects_button"
+                android:layout_toRightOf="@+id/projects_button"
+                android:layout_toEndOf="@+id/projects_button" />
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/home_projects_button"
-                    android:id="@+id/projects_button" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home_marks_button"
+                android:id="@+id/marks_button"
+                android:layout_below="@+id/projects_button"
+                android:layout_alignRight="@+id/projects_button"
+                android:layout_alignEnd="@+id/projects_button" />
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/home_susies_button"
-                    android:id="@+id/susies_button"
-                    android:layout_column="3" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/home_marks_button"
-                    android:id="@+id/marks_button"
-                    android:layout_span="2" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/home_trombi_button"
-                    android:id="@+id/trombi_button"
-                    android:layout_column="3" />
-            </TableRow>
-
-        </TableLayout>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home_trombi_button"
+                android:id="@+id/trombi_button"
+                android:layout_below="@+id/projects_button"
+                android:layout_toRightOf="@+id/projects_button"
+                android:layout_toEndOf="@+id/projects_button" />
+        </RelativeLayout>
 
     </LinearLayout>
 
